@@ -1,0 +1,51 @@
+package com.jd.fms.merchantmaster.dao;
+
+import cn.org.rapid_framework.page.Page;
+import com.jd.pops.merchantmaster.domain.model.SupplierInfo;
+import com.jd.pops.merchantmaster.domain.query.SupplierInfoQuery;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
+public interface SupplierInfoDao extends BaseDao<SupplierInfo, java.lang.Long> {
+
+
+//    int deleteByPrimaryKey(@Param("id")Long id);
+//
+//    int insert(SupplierInfo record);
+//
+//    SupplierInfo selectByPrimaryKey(@Param("id")Long id);
+//
+//    int updateByPrimaryKey(SupplierInfo record);
+
+    /**
+     * 根据accountId查询
+     * @param accountId
+     * @return
+     */
+    SupplierInfo selectByAccountId(Long accountId);
+
+
+    /**
+     * 条件查询
+     * @param supplierInfo
+     * @return
+     */
+    List<SupplierInfo> findByFields(SupplierInfo supplierInfo);
+
+    /**
+     * 分页查询
+     * @param query
+     * @return
+     */
+    Page<SupplierInfo> findPage(SupplierInfoQuery query);
+
+    /**
+     * 保存supplierInfo
+     * @param supplierInfo
+     * @return
+     */
+    public int saveOrUpdate(SupplierInfo supplierInfo);
+
+
+}

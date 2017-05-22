@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="fms-merchantmaster-web:war">
+    <output-path>$PROJECT_DIR$/fms-merchantmaster-web/target</output-path>
+    <root id="archive" name="fms-merchantmaster-web.war">
+      <element id="artifact" artifact-name="fms-merchantmaster-web:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,73 @@
+/*
+ *  TEMPLATE-BLUE
+ */
+body, html{
+  background:#fff;
+}
+a:hover, a:focus, a:active {
+  color: #8696ad;
+}
+.topbar-fixed{ background:#eef3f6;}
+.topbar-fixed{ box-shadow:none; border-bottom:1px solid #dde7f0;}
+.navbar-brand{ background:#4f90d4;}
+.navbar-brand a,.navbar-brand a:hover{ color:#FFF;}
+.menu-toggle{ background:#4f90d4;}
+.menu-toggle:hover,.menu-toggle.active{ background:#4183c8;}
+.navbar-top-links li.open > a {
+  color:#4f90d4;
+}
+.navbar-top-links li > a{ color:#8696ad;}
+.navbar-top-links li > a i{ color:#8696ad}
+.navbar-top-links li > a:hover{ color:#4f90d4;}
+.nav>li{border-left:0 solid #f4f4f4;}
+.navbar-top-links li > a:hover i,.navbar-top-links li.open > a i {
+  color: #4f90d4;
+}
+.navbar-top-links li.open > a:hover,
+.navbar-top-links li.open > a:focus {
+  background:#FFF;
+  color:#4f90d4;
+}
+.nav .open>a,.nav .open>a:focus,.nav .open>a:hover {
+	background-color: #FFF
+}
+.topbar-user .dropdown-menu li a:hover{
+    background:#eef3f6;
+	color:#4f90d4;	
+}
+.user-profile{ padding:20px 0; margin:0 15px; border-bottom:1px solid #dee8f1; color:#98aabe;}
+.user-profile dd h5{ color:#98aabe;}
+.pageslide-left{ background:#eef3f6; border-right:1px solid #dde7f0;}
+.main-nav li > a{ color:#8696ad;}
+.main-nav li a em{ margin-right:5px;}
+.main-nav li a i{ display:inline-block; width:16px;}
+.main-nav li{ border-top:0; border-bottom:0;}
+.main-nav li:first-child{ border-top:0px solid #3f4b58;}
+.main-nav li:last-child{ border-bottom:0; box-shadow:none;}
+.main-nav li > a:hover, .main-nav li.open > a{ color:#4f90d4; background:none;}
+.main-nav li ul{ background:none; border-top:0;}
+
+.main-nav li ul li a:hover{background:none;color:#4f90d4;}
+.main-nav li ul li.cur a{
+	padding-left:36px;
+	border-left:4px solid #4f90d4;
+	background:#fdfeff;
+	color:#4f90d4;
+	text-decoration:none;	
+}
+.title-breadcrumb {
+    background: none;
+    padding: 15px 30px 5px;
+    margin-bottom: 10px;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
+.breadcrumb a:hover{color:#4391e1;}
+.column-box{box-shadow: 0px 0px 2px rgba(0,0,0,.15);}
+
+.footer{ background:#eef3f6; border-top: 1px solid #dde7f0; color:#999; opacity:1}
+
+
+
+
+

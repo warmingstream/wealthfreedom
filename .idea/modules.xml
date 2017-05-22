@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/wealthfreedom.iml" filepath="$PROJECT_DIR$/wealthfreedom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wealthfreedom-common/fms-merchantmaster-common.iml" filepath="$PROJECT_DIR$/wealthfreedom-common/fms-merchantmaster-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wealthfreedom-dao/fms-merchantmaster-dao.iml" filepath="$PROJECT_DIR$/wealthfreedom-dao/fms-merchantmaster-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wealthfreedom-domain/fms-merchantmaster-domain.iml" filepath="$PROJECT_DIR$/wealthfreedom-domain/fms-merchantmaster-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wealthfreedom-facade/fms-merchantmaster-facade.iml" filepath="$PROJECT_DIR$/wealthfreedom-facade/fms-merchantmaster-facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wealthfreedom-facade-service/fms-merchantmaster-facade-service.iml" filepath="$PROJECT_DIR$/wealthfreedom-facade-service/fms-merchantmaster-facade-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wealthfreedom-manager/fms-merchantmaster-manager.iml" filepath="$PROJECT_DIR$/wealthfreedom-manager/fms-merchantmaster-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wealthfreedom-rpc/fms-merchantmaster-rpc.iml" filepath="$PROJECT_DIR$/wealthfreedom-rpc/fms-merchantmaster-rpc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wealthfreedom-service/fms-merchantmaster-service.iml" filepath="$PROJECT_DIR$/wealthfreedom-service/fms-merchantmaster-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wealthfreedom-web/fms-merchantmaster-web.iml" filepath="$PROJECT_DIR$/wealthfreedom-web/fms-merchantmaster-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wealthfreedom-worker-mq/wealthfreedom-worker-mq.iml" filepath="$PROJECT_DIR$/wealthfreedom-worker-mq/wealthfreedom-worker-mq.iml" />
+    </modules>
+  </component>
+</project>

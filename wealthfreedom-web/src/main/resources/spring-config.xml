@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+">
+	<context:component-scan base-package="com.jd.fms.merchantmaster.common" />
+	<!-- 引入属性文件 -->
+	<context:property-placeholder
+		location="classpath*:profile.properties,
+		classpath*:sso.properties,
+		classpath:properties/mq.properties,
+		classpath*:cache/redis.properties
+		,classpath*:important.properties,
+		classpath:application.properties,
+		classpath:ump/ump.properties" />
+	
+	
+	<import resource="classpath:spring/spring-config-datasource.xml" />
+	<import resource="classpath:spring/spring-config-dao.xml" />
+	<import resource="classpath:spring/spring-config-service.xml" />
+	<!--<import resource="classpath:jsf/jsf-consumer.xml"/>-->
+	<!--<import resource="classpath:jsf/jsf-provider.xml"/>-->
+	<!--<import resource="classpath:spring/spring-config-sso-uim.xml"/>-->
+	<import resource="classpath:spring/spring-config-worker.xml"/>
+	<!--<import resource="classpath:spring/spring-jmq-producer.xml"/>-->
+	<!--<import resource="classpath:spring/spring-jmq-consumer.xml"/>-->
+
+
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+	<bean class="com.jd.ump.annotation.JAnnotation">
+		<!-- 初始化系统存活监控点 key -->
+		<property name="systemKey" value="${ump-systemKey}"></property>
+		<!-- 初始化系统的jvm监控 key -->
+		<property name="jvmKey" value="${ump-jvmKey}"></property>
+	</bean>
+
+	<bean class="com.jd.fms.merchantmaster.dao.cache.RedisResourceFinalizer" scope="singleton"
+		destroy-method="finalize" />
+
+	<!-- 集成部自动署灵活配置(支持构造方法设置监测目录[环境变量优先]与回调类) -->
+	<bean id="dynmaicConfigurer" class="com.jd.autodeploy.configurer.DynmaicConfigurerBean">
+		<!-- 设置监测目录(系统绝对路径)[可选] -->
+		<!-- 如果JVM或者系统环境变量中存在 deploy.dynamic.config.dir 的值,本项设置无效 -->
+		<constructor-arg name="dirPath" value="${deploy.dynamic.config.dir}" />
+		<!-- 设置回调类（实现com.jd.autodeploy.configurer.ConfigChangeListener接口）[可选] -->
+		<constructor-arg name="configChangeListener">
+			<bean class="com.jd.fms.merchantmaster.web.deploy.listener.ConfigChangeEvent" />
+		</constructor-arg>
+	</bean>
+
+</beans>

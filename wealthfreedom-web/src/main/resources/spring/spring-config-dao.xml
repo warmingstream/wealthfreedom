@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:component-scan base-package="com.jd.fms.merchantmaster.dao" />
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:configuration-writter.xml" />
+		<property name="mapperLocations"
+			value="classpath*:/sqlmap/mysql/*.xml" />
+		<property name="dataSource" ref="fmsMerchantmasterDataSourceMaster" />
+	</bean>
+
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+
+	<!-- 批量配置mapper代理类 -->
+	<!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+		<!--&lt;!&ndash; 配置扫描的包 &ndash;&gt;-->
+		<!--<property name="basePackage" value="com.jd.fms.merchantmaster.dao"></property>-->
+	<!--</bean>-->
+
+</beans>

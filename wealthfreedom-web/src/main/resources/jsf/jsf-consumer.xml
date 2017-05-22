@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jsf="http://jsf.jd.com/schema/jsf"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://jsf.jd.com/schema/jsf  http://jsf.jd.com/schema/jsf/jsf.xsd">
+
+	<!-- 注册中心 192.168.150.121 i.jsf.jd.com #测试index服务地址 -->
+	<jsf:registry id="jsfRegistry" protocol="jsfRegistry"
+		index="i.jsf.jd.com" />
+		
+	<jsf:consumer id="ssoService" interface="com.jd.ssa.service.SsoService"
+		protocol="jsf" alias="v1" timeout="10000" />
+
+	<jsf:consumer id="financeAccountPayeeService"
+				  interface="com.jd.pop.finance.accounts.spi.fundaccount.FinanceAccountPayeeServiceProvider"
+				  protocol="jsf" alias="POP-ACCOUNT" timeout="10000" retries="0">
+		<jsf:parameter key="token" value="1qaz2wsx" hide="true" />
+	</jsf:consumer>
+
+	<jsf:consumer id="financeAccountService"
+				  interface="com.jd.pop.finance.accounts.spi.fundaccount.FinanceAccountServiceProvider"
+				  protocol="jsf" alias="POP-ACCOUNTS" timeout="10000" retries="0">
+		<jsf:parameter key="token" value="08c1b181f2c5373240b1b0cfce89089d" hide="true" />
+	</jsf:consumer>
+
+	<jsf:consumer id="financeJdMerchantService"
+				  interface="com.jd.pop.finance.accounts.spi.merchant.FinanceJdMerchantServiceProvider"
+				  protocol="jsf" alias="POP-JDMERCHANTS" timeout="10000" retries="0">
+		<jsf:parameter key="token" value="E4559F9332C816F3D9CB6C2B43436AA7" hide="true" />
+	</jsf:consumer>
+
+</beans>

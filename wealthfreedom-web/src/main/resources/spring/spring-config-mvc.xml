@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util.xsd
+		">
+
+	<context:property-placeholder
+		location="classpath*:profile.properties,classpath*:profile-sso.properties,classpath:application.properties" />
+
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<bean
+				class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+				<property name="prefixJson" value="false" />
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/json</value>
+						<value>text/json</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<!-- 自动扫描controller包下的所有类，使其认为spring mvc的控制器 -->
+	<context:component-scan base-package="com.jd.fms.merchantmaster.web.controller" />
+
+	<mvc:default-servlet-handler />
+	<mvc:resources mapping="/static/**" location="/static/"
+		cache-period="864000" />
+	<mvc:resources mapping="/favicon.ico" location="/static/images/favicon.ico" />
+
+	<!-- <mvc:annotation-driven conversion-service="conversionService" /> -->
+
+	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
+	<bean id="velocityConfig"
+		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="resourceLoaderPath" value="/WEB-INF/vm/" />
+		<property name="velocityProperties">
+			<props>
+				<prop key="directive.foreach.counter.name">loopCounter</prop>
+				<prop key="directive.foreach.counter.initial.value">0</prop>
+				<prop key="input.encoding">UTF-8</prop>
+				<prop key="output.encoding">UTF-8</prop>
+				<prop key="contentType">text/html;charset=UTF-8</prop>
+				<prop key="velocimacro.library">macro.vm</prop>
+				<prop key="tools.view.servlet.layout.directory">/layout</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="velocityViewResolver"
+		class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+		<property name="layoutUrl" value="layout/default.vm" />
+		<property name="cache" value="false" />
+		<property name="suffix" value=".vm" />
+		<property name="exposeSpringMacroHelpers" value="true" />
+		<property name="dateToolAttribute" value="dateTool" />
+		<property name="numberToolAttribute" value="numberTool" />
+		<property name="contentType" value="text/html;charset=UTF-8" />
+		<property name="toolboxConfigLocation">
+			<value>/WEB-INF/vm/toolbox.xml</value>
+		</property>
+		<property name="attributesMap" ref="_toolBoxMap" />
+	</bean>
+
+	<!-- 国际化支持 -->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+		<property name="cookieName" value="_clientlocale" />
+		<property name="defaultLocale" value="zh_CN" />
+		<property name="cookieMaxAge" value="2147483647" />
+	</bean>
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames"
+			value="/WEB-INF/i18n/content,/WEB-INF/i18n/validation,/WEB-INF/i18n/asset,/WEB-INF/i18n/enum,/WEB-INF/i18n/message,/WEB-INF/i18n/exception" />
+		<property name="cacheSeconds" value="5" />
+	</bean>
+
+	<!-- 文件上传 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding">
+			<value>UTF-8</value>
+		</property>
+		<property name="maxUploadSize">
+			<!-- 上传文件大小限制为31M，31*1024*1024 -->
+			<value>32505856</value>
+		</property>
+		<property name="maxInMemorySize">
+			<value>4096</value>
+		</property>
+	</bean>
+
+	<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
+	<bean id="mappingJacksonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<!-- json转换器 -->
+				<ref bean="mappingJacksonHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="defaultContentType" value="text/html" />
+		<property name="ignoreAcceptHeader" value="true" />
+		<property name="mediaTypes">
+			<map>
+				<entry key="xml" value="application/xml" />
+				<entry key="json" value="application/json" />
+				<entry key="html" value="text/html" />
+			</map>
+		</property>
+		<property name="viewResolvers">
+			<list>
+				<ref bean="velocityViewResolver" />
+			</list>
+		</property>
+		<property name="defaultViews">
+			<list>
+				<bean
+					class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+			</list>
+		</property>
+	</bean>
+
+	<util:map id="_toolBoxMap">
+		
+	</util:map>
+
+
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="com.jd.fms.merchantmaster.web.interceptor.I18nInterceptor">
+				<property name="localeResolver" ref="localeResolver"></property>
+			</bean>
+		</mvc:interceptor>
+		
+		<mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>
+        </mvc:interceptor>
+
+		<mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <ref bean="springSSOInterceptor"/>
+        </mvc:interceptor>
+        
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <ref bean="springAuthorizationInterceptor"/>
+        </mvc:interceptor>
+
+	</mvc:interceptors>
+</beans>

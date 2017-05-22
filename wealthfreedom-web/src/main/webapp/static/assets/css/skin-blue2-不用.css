@@ -1,0 +1,40 @@
+/*
+ *  TEMPLATE-BLUE
+ */
+a:hover, a:focus, a:active {
+  color: #4391e1;
+}
+.topbar-fixed{ background:#57a3f2;}
+.navbar-brand{ background:#4391e1;}
+.navbar-brand a,.navbar-brand a:hover{ color:#FFF;}
+.menu-toggle{ background:#66b1ff;}
+.menu-toggle:hover{ background:#4391e1;}
+.navbar-top-links li.open > a {
+  background: #4391e1;
+}
+.nav>li{ border-left:1px solid #6badf3;}
+.navbar-top-links li.open > a:hover,
+.navbar-top-links li.open > a:focus {
+  background: #4391e1;
+}
+.pageslide-left{ background:#323c4a;}
+.main-nav li a em{ margin-right:5px;}
+.main-nav li a i{ display:inline-block; width:16px;}
+.main-nav li{ border-top:0; border-bottom:0;}
+.main-nav li:first-child{ border-top:1px solid #3f4b58;}
+.main-nav li:last-child{ border-bottom:0; box-shadow:none;}
+.main-nav li > a:hover, .main-nav li.open > a{ color:#ffffff; background:#212834;}
+.main-nav li ul li a:hover{background:#57a3f2;color:#FFF;}
+.main-nav li ul li.cur a{
+	background:#4391e1;
+	color:#FFF;
+	text-decoration:none;	
+}
+.breadcrumb a:hover{color:#4391e1;}
+
+.footer{ background:#323c4a; opacity:.8}
+
+
+
+
+

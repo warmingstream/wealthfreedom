@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="fms-merchantmaster-web:war exploded">
+    <output-path>$PROJECT_DIR$/fms-merchantmaster-web/target/fms-merchantmaster-web</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="wealthfreedom-web" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/wealthfreedom-web/target/fms-merchantmaster-web/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="wealthfreedom-web/web/Web" />
+    </root>
+  </artifact>
+</component>

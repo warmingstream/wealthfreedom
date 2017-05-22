@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="SupplierInfo">
+
+  <resultMap id="BaseResultMap" type="com.jd.pops.merchantmaster.domain.model.SupplierInfo">
+    <id column="id" property="id"  />
+    <result column="supplier_id" property="supplierId"  />
+    <result column="company_id" property="companyId"  />
+    <result column="supplier_name" property="supplierName"  />
+    <result column="company_name" property="companyName"  />
+    <result column="payee_id" property="payeeId"  />
+    <result column="account_id" property="accountId"  />
+    <result column="account_type" property="accountType"  />
+    <result column="supplier_type" property="supplierType"  />
+    <result column="ft_state" property="ftState"  />
+    <result column="state" property="state"  />
+    <result column="payment_type" property="paymentType"  />
+    <result column="payout_pipline" property="payoutPipline"  />
+    <result column="bu_id" property="buId"  />
+    <result column="process_status" property="processStatus"  />
+    <result column="strategic_supplier" property="strategicSupplier"  />
+    <result column="operator_id" property="operatorId"  />
+    <result column="yn" property="yn"  />
+    <result column="sys_version" property="sysVersion"  />
+    <result column="create_pin" property="createPin"  />
+    <result column="create_date" property="createDate"  />
+    <result column="update_pin" property="updatePin"  />
+    <result column="update_date" property="updateDate"  />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, supplier_id supplierId, company_id companyId, supplier_name supplierName, company_name companyName,
+    payee_id payeeId, account_id accountId, account_type accountType, supplier_type supplierType, ft_state ftState,
+    state, payment_type paymentType, payout_pipline payoutPipline, bu_id buId, process_status processStatus,
+    strategic_supplier strategicSupplier,operator_id operatorId,  yn, sys_version sysVersion, create_pin createPin, create_date createDate,
+    update_pin updatePin, update_date updateDate
+  </sql>
+
+  <select id="getById" resultType="com.jd.pops.merchantmaster.domain.model.SupplierInfo" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from fms_merchantmaster_supplier
+    where id = #{id}
+    AND yn = 1
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from fms_merchantmaster_supplier
+    where id = #{id}
+  </delete>
+
+  <insert id="SupplierInfo.insert" parameterType="com.jd.pops.merchantmaster.domain.model.SupplierInfo" useGeneratedKeys="true" keyProperty="id">
+    insert into fms_merchantmaster_supplier (id, supplier_id, company_id,
+      supplier_name, company_name, payee_id,
+      account_id, account_type, supplier_type,
+      ft_state, state, payment_type, payout_pipline,
+      bu_id, process_status, strategic_supplier, operator_id, yn,
+      sys_version, create_pin, create_date,
+      update_pin, update_date)
+    values (#{id}, #{supplierId}, #{companyId},
+      #{supplierName}, #{companyName}, #{payeeId},
+      #{accountId}, #{accountType}, #{supplierType},
+      #{ftState}, #{state}, #{paymentType}, #{payoutPipline},
+      #{buId}, #{processStatus}, #{strategicSupplier}, #{operatorId}, #{yn},
+      #{sysVersion}, #{createPin}, #{createDate},
+      #{updatePin}, #{updateDate})
+  </insert>
+
+  <select id="SupplierInfo.selectByAccountId" resultType="com.jd.pops.merchantmaster.domain.model.SupplierInfo" parameterType="java.lang.Long" >
+    SELECT
+      <include refid="Base_Column_List" />
+    FROM fms_merchantmaster_supplier
+    WHERE account_id=#{accountId}
+    AND yn = 1
+  </select>
+
+  <update id="SupplierInfo.update" parameterType="com.jd.pops.merchantmaster.domain.model.SupplierInfo" >
+    update fms_merchantmaster_supplier
+      <set>
+        <if test="strategicSupplier != null">
+          strategic_supplier = #{strategicSupplier}
+        </if>
+        <if test="yn != null">
+          yn = #{yn}
+        </if>
+      </set>
+    where
+    yn = 1
+    <if test="id != null">
+      AND id = #{id}
+    </if>
+    <if test="accountId != null">
+      AND account_id = #{accountId}
+    </if>
+  </update>
+
+
+  <update id="SupplierInfo.updateAll" parameterType="com.jd.pops.merchantmaster.domain.model.SupplierInfo" >
+    update fms_merchantmaster_supplier
+    set supplier_id = #{supplierId},
+      company_id = #{companyId},
+      supplier_name = #{supplierName},
+      company_name = #{companyName},
+      payee_id = #{payeeId},
+      account_id = #{accountId},
+      account_type = #{accountType},
+      supplier_type = #{supplierType},
+      ft_state = #{ftState},
+      state = #{state},
+      payment_type = #{paymentType},
+      payout_pipline = #{payoutPipline},
+      bu_id = #{buId},
+      process_status = #{processStatus},
+      strategic_supplier = #{strategicSupplier},
+      operator_id = #{operatorId},
+      yn = #{yn},
+      sys_version = #{sysVersion},
+      create_pin = #{createPin},
+      create_date = #{createDate},
+      update_pin = #{updatePin},
+      update_date = #{updateDate}
+    where id = #{id}
+  </update>
+
+  <select id="SupplierInfo.findByFields" resultType="com.jd.pops.merchantmaster.domain.model.SupplierInfo" parameterType="com.jd.pops.merchantmaster.domain.model.SupplierInfo" >
+    SELECT
+     <include refid="Base_Column_List" />
+    FROM
+      fms_merchantmaster_supplier
+    WHERE
+      yn = 1
+      <if test="strategicSupplier != null" >
+        AND strategic_supplier = #{strategicSupplier}
+      </if>
+  </select>
+
+  <select id="SupplierInfo.findPage.count" resultType="long">
+    SELECT count(*) FROM fms_merchantmaster_supplier
+    <include refid="SupplierInfo.findPage.where"/>
+  </select>
+  <!--
+		分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
+		因为分页查询将传 offset,pageSize,lastRows 三个参数,不同的数据库可以根于此三个参数属性应用不同的分页实现
+	-->
+
+  <sql id="SupplierInfo.findPage.where">
+    <where>
+    <if test="@Ognl@isNotEmpty(supplierId)">
+      AND supplier_id IN (#{supplierId})
+    </if>
+    <if test="@Ognl@isNotEmpty(supplierName)">
+      AND supplier_name LIKE '%#{supplierName}'
+    </if>
+    <if test="@Ognl@isNotEmpty(companyId)">
+      AND company_id IN (#{companyId})
+    </if>
+    <if test="@Ognl@isNotEmpty(companyName)">
+      AND company_name LIKE '%#{companyName}'
+    </if>
+    <if test="@Ognl@isNotEmpty(buId)">
+      AND bu_id = #{buId}
+    </if>
+    <if test="@Ognl@isNotEmpty(ftState)">
+      AND ft_state = #{ftState}
+    </if>
+    </where>
+  </sql>
+
+  <select id="SupplierInfo.findPage" resultMap="BaseResultMap" >
+    SELECT <include refid="Base_Column_List" />
+    FROM fms_merchantmaster_supplier
+    <include refid="SupplierInfo.findPage.where"/>
+
+    <if test="@Ognl@isNotEmpty(sortColumns)">
+      ORDER BY ${sortColumns}
+    </if>
+  </select>
+
+
+</mapper>

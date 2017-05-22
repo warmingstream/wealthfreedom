@@ -1,0 +1,312 @@
+/*==========================================弹出层与提示框样式开始==================================================*/
+.jqmodal h1, h2, h3, h3, h4, h5, h6 {
+    font-size: 12px;
+    font-weight: 100;
+    margin: 0px;
+}
+
+.whiteOverlay {
+    background-color: #000;
+    height: 100%;
+    left: 0;
+    opacity: 0.7;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+}
+
+.jqDrag {
+    cursor: move;
+}
+
+.jqmodal {
+    display: none;
+    _left: 50%;
+    position: fixed;
+    box-shadow: 2px 2px 4px #333;
+    -moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+    top: 20%;
+}
+
+.jqmLoading {
+    display: none;
+    _left: 50%;
+    position: fixed;
+    top: 20%;
+}
+
+.jqmLoading {
+    z-index: 3100;
+}
+
+.loading_64, .loading_55, .loading_48, .loading_32, .loading_24, .loading_16 {
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.loading_64 {
+    height: 64px;
+    width: 64px;
+    background-image: url("./img/loading_64.gif");
+}
+
+.loading_55,
+.loading_48 {
+    height: 55px;
+    width: 55px;
+    background-image: url("./img/loading_48.gif");
+}
+
+.loading_32 {
+    height: 32px;
+    width: 32px;
+    background-image: url("./img/loading_32.gif");
+}
+
+.loading_24 {
+    height: 24px;
+    width: 24px;
+    background-image: url("./img/loading_24.gif");
+}
+
+.loading_16 {
+    height: 16px;
+    width: 16px;
+    background-image: url("./img/loading_16.gif");
+}
+
+* html .jqmodal,
+* html .jqmLoading {
+    position: absolute;
+}
+
+.jqmodal .tl {
+    /*background: url(./img/jModal.png) repeat-x 0 0 #4290c1;*/
+    background: #3ba0e8;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    margin-right: 10px;
+    padding-left: 10px;
+    border-top-left-radius:5px;
+    /*font-family: Georgia, "Times New Roman", Times, serif;*/
+}
+
+.jqmodal .jqTit{
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #419fdb 0%, #338cca 100%) repeat scroll 0 0;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    margin-right: 10px;
+    padding-left: 10px;
+    /*font-family: Georgia, "Times New Roman", Times, serif;*/
+}
+
+.jqmodal .tr {
+    /*background: url(./img/jModal.png) repeat-x 0 0 #4290c1;*/
+    background: #3ba0e8;
+    height: 40px;
+    line-height: 40px;
+    margin-right: -10px;
+    padding-right: 10px;
+    display: block;
+    border-top-right-radius:5px;
+    /*font-family: Georgia, "Times New Roman", Times, serif;*/
+}
+
+.jqmodal .tit {
+    float: left;
+    /*font-family: Georgia, "Times New Roman", Times, serif;*/
+}
+
+.jqmodal .modalClose {
+    cursor: pointer;
+    text-indent: -9999px;
+    background: rgba(0, 0, 0, 0) url("./img/d-close-hover.png") no-repeat scroll center center;
+    float: right;
+    height: 40px;
+    width: 40px;
+}
+
+.jqmodal .moadalCon
+{
+    /*border-left: 1px solid #4290c1;*/
+    /*border-right: 1px solid #4290c1;*/
+    background-color: #fff;
+    max-height: 250px;
+    overflow: auto;
+}
+.jqmodal .modalFooter {
+    /*border-left: 1px solid #4290c1;*/
+    /*border-right: 1px solid #4290c1;*/
+    background-color: #fff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.jqmodal .moadalCon {
+    padding: 10px;
+}
+
+.jqmodal .h400 {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.jqmodal .modalFooter {
+    /*background: #eff3f8;*/
+    padding-top: 5px;
+    height: 38px;
+    text-align: center;
+}
+
+.jqmodal .bl {
+    /*border-bottom: 1px solid #3ba0e8;*/
+}
+
+.jqmodal .fakeMsg {
+    height: auto;
+    padding: 8px 0;
+    zoom: 1;
+    overflow:hidden;
+}
+
+.jqmodal .fakeMsg .ico {
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px 0 6px
+}
+
+.jqmodal .fakeMsg .conText {
+    float: left;
+    display: inline-block;
+    color: #666;
+    line-height: 20px
+}
+
+.jqmodal .attention .ico {
+    background: url(./img/msgIco24.png) 0px -49px no-repeat;
+}
+
+.jqmodal .alert .ico {
+    background: url(./img/msgIco24.png) 0px -25px no-repeat;
+}
+
+.jqmodal .success .ico {
+    background: url(./img/msgIco24.png) 0px 0px no-repeat;
+}
+
+.jqmodal .error .ico {
+    background: url(./img/msgIco24.png) 0px -74px no-repeat;
+}
+
+.jqmodal .fakeMsg.error {
+    border: 1px solid #cc6666;
+    background-color: #ffeaea;
+}
+
+.jqmodal .fakeMsg.success {
+    border: 1px solid #9cca0f;
+    background-color: #effeb9;
+}
+
+/*.clearfix {*/
+    /*zoom: 1;*/
+/*}*/
+
+/*.clearfix:after {*/
+    /*content: ".";*/
+    /*display: block;*/
+    /*height: 0;*/
+    /*clear: both;*/
+    /*visibility: hidden;*/
+/*}*/
+
+/** html .clearfix {*/
+    /*height: 1%*/
+/*}*/
+
+.jqmodal .jqbtn {
+    hide-focus: expression(this.hideFocus=true);
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* for IE7.0及以下版本 */
+.jqmodal .jqbtn:focus {
+    outline-style: none;
+}
+
+/* for Firefox，IE8.0等 */
+.jqmodal .jqbtn {
+    display: inline-block;
+    height: 28px;
+    vertical-align: middle;
+}
+
+.jqmodal .jqbtn s,
+.jqmodal .jqbtn b,
+.jqmodal .jqbtn span,
+.jqmodal .jqbtn i {
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    cursor: pointer;
+    vertical-align: baseline;
+    white-space: nowrap;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.jqmodal .jqbtn s {
+    padding-left: 8px;
+    background: #3ba0e8;
+    border-radius: 4px;
+}
+
+.jqmodal .jqbtn s b {
+    padding-right: 8px;
+    background: #3ba0e8;
+    border-radius: 4px;
+}
+
+.jqmodal .jqbtn s b span {
+    background: #3ba0e8;
+    color: #fff;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 30px;
+    width: 45px;
+}
+
+.jqmodal .jqbtn.hover s, .jqmodal .jqbtn:hover s {
+    background: #177cb0;
+}
+
+.jqmodal .jqbtn.hover s b, .jqmodal .jqbtn:hover s b {
+    background: #177cb0;
+}
+
+.jqmodal .jqbtn.hover s b span, .jqmodal .jqbtn:hover s b span {
+    background: #177cb0;
+}
+
+.jqmodal .jqbtn.active s, .jqmodal .jqbtn:active s {
+    background: #177cb0;
+}
+
+.jqmodal .jqbtn.active s b, .jqmodal .jqbtn:active s b {
+    background: #177cb0;
+}
+
+.jqmodal .jqbtn.active s b span, .jqmodal .jqbtn:active s b span {
+    background: #177cb0;
+}
+
+/*==========================================弹出层与提示框样式结束==================================================*/

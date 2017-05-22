@@ -1,0 +1,409 @@
+/* tel top.css Date:2015-10-30 17:28:22 */
+
+.t-center {
+    text-align: center;
+}
+
+.m-t-1 {
+    margin-top: 1px
+}
+
+.m-t-5 {
+    margin-top: 5px
+}
+
+.m-l-25 {
+    margin-left: 25px
+}
+
+.c-white {
+    color: #fff
+}
+
+.c-brown {
+    color: #f99
+}
+
+.c-yellow {
+    color: #feea08
+}
+
+.line {
+    float: left;
+    margin-left: 12px;
+    margin-right: 12px;
+    width: 2px;
+    height: 50px;
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 0
+}
+
+body,
+div,
+html {
+    margin: 0;
+    padding: 0
+}
+
+.left {
+    float: left
+}
+
+.right,
+.top .oper {
+    float: right
+}
+
+.block {
+    display: block;
+}
+
+.top {
+    height: 78px;
+    /*background-color: #0073C6;*/
+    color: #FFF;
+    font-size: 12px
+}
+
+.top .logo {
+    float: left;
+    margin: 14px 0 0 20px;
+    width: 220px;
+    height: 51px;
+    background: url(img/logo.png) no-repeat
+}
+.top .oper {
+    padding: 14px 5px 0;
+    position: relative;
+}
+.load {
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin: 14px 0 0 20px;
+    background: url(img/loading.gif) no-repeat
+}
+.t-loading{ position:absolute; top:9px; left:50%; margin-left:-60px; width:120px; height:60px; text-align:center; border-radius:5px; background:rgba(0,0,0,.4);}
+.t-loading img{ position:relative; vertical-align:middle; margin-top: 20px;}
+
+.top .oper>span {
+    float: left
+}
+
+.top .oper .user-status {
+    float: left;
+    margin-right: 10px;
+    width: 38px;
+    height: 43px;
+    margin-top: 4px;
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -60px
+}
+
+.top .oper .user-status.busy {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -113px
+}
+
+.top .oper .user-status.leave {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -167px
+}
+
+.top .oper .user-status.off {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -221px
+}
+
+.top .oper .label {
+    background-color: #7FAAC9;
+    border-radius: 3px;
+    width: 140px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    color: #4c4c4c
+}
+
+.top .oper select {
+    width: 140px;
+    height: 24px;
+    margin-top: 3px;
+    color: #C1C1C1
+}
+
+.btn-txt {
+    display: block;
+    text-align: center
+}
+
+
+/*应答*/
+
+#answerBtn {
+    float: left;
+    margin-left: 14px;
+    color: #FFF;
+    text-decoration: none
+}
+
+#answerBtn i {
+    display: block;
+    width: 38px;
+    height: 38px;
+}
+
+.answerBtn_enabled i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -274px
+}
+
+.answerBtn_enabled:hover i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -320px
+}
+
+.answerBtn_dialing i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -274px
+}
+
+.answerBtn_disabled i,
+.answerBtn_disabled:hover i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -366px;
+    cursor:not-allowed;
+}
+
+
+/*外拨*/
+
+#dialBtn {
+    float: left;
+    margin-left: 14px;
+    color: #FFF;
+    text-decoration: none
+}
+
+#dialBtn i {
+    display: block;
+    width: 38px;
+    height: 38px;
+}
+
+.dialBtn_enabled i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -412px
+}
+
+.dialBtn_enabled:hover i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -458px;
+}
+
+.dialBtn_disabled i,
+.dialBtn_disabled:hover i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -504px;
+    cursor:not-allowed;
+}
+
+
+/*挂断*/
+
+#hangupBtn {
+    float: left;
+    margin-left: 14px;
+    color: #FFF;
+    text-decoration: none
+}
+
+#hangupBtn i {
+    display: block;
+    width: 38px;
+    height: 38px;
+}
+
+.hangupBtn_enabled i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -550px
+}
+
+.hangupBtn_enabled:hover i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -596px
+}
+
+.hangupBtn_disabled i,
+.hangupBtn_disabled:hover i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -642px;
+    cursor:not-allowed;
+}
+
+
+/*保持*/
+
+#holdBtn {
+    float: left;
+    margin-left: 14px;
+    color: #FFF;
+    text-decoration: none
+}
+
+#holdBtn i {
+    display: block;
+    width: 38px;
+    height: 38px;
+}
+
+.holdBtn_enabled i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -688px
+}
+
+.holdBtn_enabled:hover i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -734px
+}
+
+.holdBtn_disabled i,
+.holdBtn_disabled:hover i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -780px;
+    cursor:not-allowed;
+}
+
+
+/*会议*/
+
+#conferenceBtn {
+    float: left;
+    margin-left: 14px;
+    color: #FFF;
+    text-decoration: none
+}
+
+#conferenceBtn i {
+    display: block;
+    width: 38px;
+    height: 38px;
+}
+
+.conferenceBtn_enabled i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -826px
+}
+
+.conferenceBtn_enabled:hover i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -872px
+}
+
+.conferenceBtn_disabled i,
+.conferenceBtn_disabled:hover i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -918px;
+    cursor:not-allowed;
+}
+
+
+/*转接*/
+
+#transferBtn {
+    float: left;
+    margin-left: 14px;
+    color: #FFF;
+    text-decoration: none
+}
+
+#transferBtn i {
+    display: block;
+    width: 38px;
+    height: 38px;
+}
+
+.transferBtn_enabled i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -964px
+}
+
+.transferBtn_enabled:hover i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -1010px
+}
+
+.transferBtn_disabled i,
+.transferBtn_disabled:hover i {
+    background: url(img/top.png?__sprite) no-repeat;
+    background-position: 0 -1054px;
+    cursor:not-allowed;
+}
+
+.top .oper .r-03>div {
+    margin-left: -14px
+}
+
+.top .oper select.w-95 {
+    margin-top: 8px;
+    width: 95px
+}
+
+.top .r-btn {
+    display: block;
+    width: 43px;
+    height: 43px;
+    border: 1px solid #05817A;
+    background-color: #1fb1a8;
+    color: #FFF;
+    line-height: 43px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none
+}
+
+.top .r-btn:hover {
+    background-color: #1ebbb2
+}
+
+.r-div {
+    position: relative;
+}
+
+#edit-number {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    top: 6px;
+    left: 5px;
+    z-index:10;
+    background:url(img/input-bg.png) repeat;
+}
+
+#edit-number input {
+    display: none;
+    padding-left: 0px;
+    width: 100px;
+    height: 16px;
+    font-size: 12px;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+}
+
+.notReady,.ready,.disabled{
+	width:89px;
+	height:37px;
+	background:url(img/top.png?__sprite) no-repeat;
+	background-position:0 -1105px;
+	cursor:pointer
+}
+.notReady{
+	background:url(img/top.png?__sprite) no-repeat;
+	background-position:0 -1153px
+}
+.disabled{
+    background:url(img/top.png?__sprite) no-repeat;
+    background-position:0 -1199px;
+    cursor:not-allowed;
+}

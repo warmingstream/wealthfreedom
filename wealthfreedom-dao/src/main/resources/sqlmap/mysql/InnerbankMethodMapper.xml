@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="InnerbankMethod" >
+
+  <sql id="Base_Column_List" >
+    id, account_id accountId, deposit_id depositId, deposit_company_name depositCompanyName, deposit_name depositName, deposot_bank_name deposotBankName,
+    deposit_bank_address depositBankAddress, associated_line_num associatedLineNum, yn, sys_version sysVersion,
+    create_pin createPin, create_date createDate, update_pin updatePin, update_date updateDate
+  </sql>
+
+  <select id="getById" resultType="com.jd.pops.merchantmaster.domain.model.InnerbankMethod" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from fms_merchantmaster_innerbank
+    where id = #{id}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from fms_merchantmaster_innerbank
+    where id = #{id}
+  </delete>
+
+  <insert id="InnerbankMethod.insert" parameterType="com.jd.pops.merchantmaster.domain.model.InnerbankMethod" useGeneratedKeys="true" keyProperty="id">
+    insert into fms_merchantmaster_innerbank (id, account_id, deposit_id, 
+      deposit_company_name, deposit_name, deposot_bank_name, deposit_bank_address,
+      associated_line_num, yn, sys_version, 
+      create_pin, create_date, update_pin, 
+      update_date)
+    values (#{id}, #{accountId}, #{depositId},
+      #{depositCompanyName}, #{depositName}, #{deposotBankName}, #{depositBankAddress},
+      #{associatedLineNum}, #{yn}, #{sysVersion},
+      #{createPin}, #{createDate}, #{updatePin},
+      #{updateDate})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.jd.pops.merchantmaster.domain.model.InnerbankMethod" >
+    update fms_merchantmaster_innerbank
+    set account_id = #{accountId},
+      deposit_id = #{depositId},
+      deposit_company_name = #{depositCompanyName},
+      deposit_name = #{depositName},
+      deposot_bank_name = #{deposotBankName},
+      deposit_bank_address = #{depositBankAddress},
+      associated_line_num = #{associatedLineNum},
+      yn = #{yn},
+      sys_version = #{sysVersion},
+      create_pin = #{createPin},
+      create_date = #{createDate},
+      update_pin = #{updatePin},
+      update_date = #{updateDate}
+    where id = #{id}
+  </update>
+
+
+  <select id="InnerbankMethod.findByFields" resultType="com.jd.pops.merchantmaster.domain.model.InnerbankMethod" parameterType="com.jd.pops.merchantmaster.domain.model.InnerbankMethod" >
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    fms_merchantmaster_innerbank
+    WHERE
+    yn = 1
+    <if test="createPin != null" >
+      AND create_pin = #{createPin}
+    </if>
+    <if test="accountId != null" >
+      AND account_id = #{accountId}
+    </if>
+  </select>
+
+
+  <update id="InnerbankMethod.update" parameterType="com.jd.pops.merchantmaster.domain.model.InnerbankMethod" >
+    update fms_merchantmaster_innerbank
+    <set>
+      <if test="yn != null">
+        yn = #{yn}
+      </if>
+    </set>
+    where
+    yn = 1
+    <if test="accountId != null">
+      AND account_id = #{accountId}
+    </if>
+  </update>
+</mapper>
