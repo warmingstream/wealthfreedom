@@ -1,0 +1,52 @@
+body,html{background:#fafafa;color:#333;}
+body,button,input,select,textarea{font:12px Microsoft YaHei,tahoma,arial}
+input{outline:0}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;margin:0;padding:0;padding:0;font-family:'Microsoft YaHei','tahoma','arial'}
+header,footer,nav,section,article,aside,dialog,figure,menu{display:block}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+ol,ul,li{list-style:none}
+.cl:after{display:block;visibility:hidden;clear:both;font-size:0;content:' '}
+.cl{display:block;/* for IE6 IE7 */overflow:hidden;zoom:1}
+.fl,.fr{display:inline}
+.cl{overflow:hidden;clear:both;height:0}
+.fl{float:left}
+.fr{float:right}
+.relative{position:relative}
+.fb{font-weight:700}
+.hide{ overflow:hidden;}
+
+.welcomeBox{ position:absolute; top:50%; left:50%; margin-top:-230px; margin-left:-280px; width:560px; height:355px; background:url(../images/welcomeBg.png) no-repeat;}
+.w-ico{ position:absolute; width:76px; height:76px;}
+.w-ico p{ position:absolute; width:100%; font-size:15px; color:#a8a8a8; text-align:center; transition:all 0.2s ease-in-out;}
+.wPosition1{ top:0; left:253px;}
+.wPosition1 p{ top:-30px;}
+.wPosition2{ top:90px; left:90px;}
+.wPosition2 p{ left:-90px; top:26px;}
+.wPosition3{ top:90px; right:68px;}
+.wPosition3 p{ right:-90px; top:26px;}
+.wPosition4{ top:245px; left:77px;}
+.wPosition4 p{ left:-84px; top:26px;}
+.wPosition5{ top:245px; right:54px;}
+.wPosition5 p{ right:-89px; top:26px;}
+.wPosition6{ width:106px; height:106px; bottom:-43px; left:244px;}
+.wPosition6 p{ font-size:18px; left:-85px; bottom:-80px; color:#4081a7; width:280px;}
+.wPosition6 p font{ display:inline-block; padding-top:2px; font-size:30px; color:#a2c9e0; font-family:"Century Gothic"}
+
+.w-ico span{ display:inline-block; width:60px; height:60px; border:8px solid #FFF; border-radius:50%; -webkit-transition:all 0.1s ease-in-out; -moz-transition:all 0.1s ease-in-out; -o-transition:all 0.1s ease-in-out; transition:all 0.1s ease-in-out; box-shadow:1px 1px 3px rgba(0,0,0,.067)}
+.w-ico span.i1{background:#b5d6ea}
+.w-ico span.i2,.w-ico span.i3{background:#91c5e3}
+.w-ico span.i4,.w-ico span.i5{background:#6aaacf}
+.w-ico span i{ display:inline-block; width:60px; height:60px; background:url(../images/w-icon.png) no-repeat;}
+.w-ico span.i1 i{ background-position:0 0;}
+.w-ico span.i2 i{ background-position:0 -60px;}
+.w-ico span.i3 i{ background-position:0 -120px;}
+.w-ico span.i4 i{ background-position:0 -180px;}
+.w-ico span.i5 i{ background-position:0 -240px;}
+.w-ico span.i6 i{ width:90px; height:90px; background-position:0 -300px;}
+.w-ico.wPosition6 span{ width:90px; height:90px;background:#6aaacf;}
+
+.w-ico:hover span{ background:#569ac2; box-shadow:0 1px 5px rgba(0,0,0,.2); -webkit-transform:scale(1.1,1.1); -moz-transform:scale(1.1,1.1); -o-transform:scale(1.1,1.1);transform:scale(1.1,1.1)}
+.w-ico.wPosition6:hover span{ -webkit-transform:scale(1.05,1.05); -moz-transform:scale(1.05,1.05); -o-transform:scale(1.05,1.05);transform:scale(1.05,1.05)}
+
+.w-ico:hover p{ color:#569ac2;-webkit-transform:scale(1.1,1.1); -moz-transform:scale(1.1,1.1); -o-transform:scale(1.1,1.1); transform:scale(1.1,1.1)}

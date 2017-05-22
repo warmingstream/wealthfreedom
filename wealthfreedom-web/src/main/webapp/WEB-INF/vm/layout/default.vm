@@ -1,0 +1,16 @@
+#parse("common/head.vm")
+<!--默认浏览器模式为最高版本-->
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta charset="UTF-8">
+<title>商家结算</title>
+<script language="javascript">
+    var _lang = "zh_cn";
+		#if ($pagelocale)
+        _lang = "$pagelocale";
+		#end
+    var _springurl = "#springUrl('')";
+</script>
+
+</head>
+$screen_content
+</html>

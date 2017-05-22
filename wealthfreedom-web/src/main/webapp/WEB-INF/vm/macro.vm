@@ -1,0 +1,406 @@
+
+#macro(pageToolBar $page)
+	#set ($ctx=$homeModule.forPath("/").build())
+    #set ($pageSizeSelectList=[10,20,30])
+    #set ($isShowPageSizeList=true)
+    
+    <div class="page mt10 textC">
+		#if($page.thisPageLastElementNumber == 0)
+			#set($thisPageFirstElementNumberv = 0 )
+		#else
+			#set($thisPageFirstElementNumberv = $page.thisPageFirstElementNumber )
+		#end
+		
+        <span class="buttonLabel">
+        	$thisPageFirstElementNumberv - $page.thisPageLastElementNumber
+            共 $page.totalCount
+        </span>
+
+        #if ($page.firstPage)
+			<a class="disabled" href="javascript:void(0);">首页</a>
+        #else
+            <a href="javascript:simpleTable.togglePage(1);">首页</a>
+        #end
+
+        #if ($page.hasPreviousPage)
+            <a href="javascript:simpleTable.togglePage($page.previousPageNumber);">上一页</a>
+        #else
+			<a class="disabled" href="javascript:void(0);">上一页</a>
+        #end
+        
+        #foreach($item in $page.linkPageNumbers)
+            #if ($item == $page.thisPageNumber)
+                <a class="current" href="javascript:void(0);">$item</a>
+            #else
+                <a href="javascript:simpleTable.togglePage($item);">$item</a>
+            #end
+        #end
+        
+        #if ($page.hasNextPage)
+            <a href="javascript:simpleTable.togglePage($page.nextPageNumber);">下一页</a>
+        #else
+			<a class="disabled" href="javascript:void(0);">下一页</a>
+        #end
+
+        #if ($page.lastPage)
+			<a class="disabled" href="javascript:void(0);">最后一页</a>
+        #else
+            <a href="javascript:simpleTable.togglePage($page.lastPageNumber);">最后一页</a>
+        #end
+
+        #if ($isShowPageSizeList)
+            <span class="ml10">每页显示</span>
+            <select onChange="simpleTable.togglePageSize(this.value)">
+                #foreach($item in $pageSizeSelectList)
+                    #if  ($item == $page.pageSize)
+                        <option value="$item" selected>$item</option>
+                    #else
+                        <option value="$item">$item</option>
+                    #end
+                #end
+            </select>条
+        #end
+    </div>
+#end
+
+#macro(pageToolBarExt $page $tableName)
+    #set ($ctx=$homeModule.forPath("/").build())
+    #set ($pageSizeSelectList=[10,20,30])
+    #set ($isShowPageSizeList=true)
+
+<div class="page_simpletable mt10 textC">
+    #if($page.thisPageLastElementNumber == 0)
+        #set($thisPageFirstElementNumberv = 0 )
+    #else
+        #set($thisPageFirstElementNumberv = $page.thisPageFirstElementNumber )
+    #end
+
+    <span class="buttonLabel">
+        	$thisPageFirstElementNumberv - $page.thisPageLastElementNumber
+        共 $page.totalCount
+        </span>
+
+    #if ($page.firstPage)
+        <a class="disabled" href="javascript:void(0);">首页</a>
+    #else
+        <a href="javascript:${tableName}.togglePage(1);">首页</a>
+    #end
+
+    #if ($page.hasPreviousPage)
+        <a href="javascript:${tableName}.togglePage($page.previousPageNumber);">上一页</a>
+    #else
+        <a class="disabled" href="javascript:void(0);">上一页</a>
+    #end
+
+    #foreach($item in $page.linkPageNumbers)
+        #if ($item == $page.thisPageNumber)
+            <a class="current" href="javascript:void(0);">$item</a>
+        #else
+            <a href="javascript:${tableName}.togglePage($item);">$item</a>
+        #end
+    #end
+
+    #if ($page.hasNextPage)
+        <a href="javascript:${tableName}.togglePage($page.nextPageNumber);">下一页</a>
+    #else
+        <a class="disabled" href="javascript:void(0);">下一页</a>
+    #end
+
+    #if ($page.lastPage)
+        <a class="disabled" href="javascript:void(0);">最后一页</a>
+    #else
+        <a href="javascript:${tableName}.togglePage($page.lastPageNumber);">最后一页</a>
+    #end
+
+    #if ($isShowPageSizeList)
+        <span class="ml10">每页显示</span>
+        <select onChange="${tableName}.togglePageSize(this.value)">
+            #foreach($item in $pageSizeSelectList)
+                #if  ($item == $page.pageSize)
+                    <option value="$item" selected>$item</option>
+                #else
+                    <option value="$item">$item</option>
+                #end
+            #end
+        </select>条
+    #end
+</div>
+#end
+
+
+#macro(showSimpleError)
+    #if(!$!actionErrors.empty)
+        #foreach($str in $actionErrors)
+            $!str
+            #break
+        #end
+    #end
+#end
+
+#macro(showError)
+    #if(!$!actionErrors.empty)
+        #foreach($str in $actionErrors)
+        <li>$!str</li>
+        #end
+    #end
+#end
+
+#macro(showSimpleMessage)
+    #if(!$!actionMessages.empty)
+        #foreach($str in $actionErrors)
+            $!str
+            #break
+        #end
+    #end
+#end
+
+#macro(showMessage)
+    #if(!$!actionMessages.empty)
+        #foreach($str in $actionErrors)
+        <li>$!str</li>
+        #end
+    #end
+
+	#macro(d)
+	    <tr>
+	        <td></td>
+	    </tr>
+	#end
+#end
+
+
+##
+##元数据单选按钮,与Spring验证集成使用
+## path        表单数据名称
+## category    元数据分类代码
+## locale      语言信息
+## attributes  其他属性设置
+## allselect   是否显示“请选择”
+##
+#macro( metadatasSingleSelect $path $category $attributes $allselect $noshow )
+    #springBind($path)
+    #set( $options = $bizdictToolBox.getMetadatas($category))
+	<select id="${status.expression}" name="${status.expression}" ${attributes}>
+	    #if("false"!=$allselect)
+	        <option value=''>#springMessage('text.needselect')</option>
+	    #end
+	    #foreach($option in $options)
+	        <option value="$!option.bizDictValue" #if("$!status.value" == "$!option.bizDictValue")selected="selected"#end> $!option.bizDictValueName</option>
+	    #end
+	</select>
+#end
+
+##用元数据显示，不绑定
+#macro( metadatasSingleSelectNoBind $path $category $attributes $allselect)
+	 #set( $options = $bizdictToolBox.getMetadatas($category) )
+    <select id=$path name=$path ${attributes}>
+		#if("false"!=$allselect)
+			 <option value=''>#springMessage('text.needselect')</option>
+		#end
+        #foreach($option in $options)
+            <option value="$option.bizDictValue">$option.bizDictValueName</option>
+        #end
+    </select>
+#end
+
+##
+##元数据下拉框，不予Html绑定
+## path        表单数据名称
+## category    元数据分类代码
+## locale      语言信息
+## attributes  其他属性设置
+## allselect   是否显示“请选择”
+## checkvalue  设定默认选中
+## noshow  不显示的元数据
+##
+#macro( metadatasHtmlSingleSelectCheckedNoShow $path $category $locale $attributes $allselect $checkvalue $noshow)
+	 #set( $options = $bizdictToolBox.getMetadatas($category) )
+    <select id="${path}" name="${path}" ${attributes}>
+		#if("false"!=$allselect)
+			 <option value=''>#springMessage('text.needselect')</option>
+		#end
+        #foreach($option in $options)
+			#if($option.bizDictValue != $noshow)
+                <option value="$option.bizDictValue"
+				#if("$checkvalue" == "$option.bizDictValue")
+                    selected="selected"
+                #end>$option.bizDictValueName</option>
+            #end
+        #end
+    </select>
+#end
+
+##
+##元数据下拉框，不予Html绑定
+## path        表单数据名称
+## category    元数据分类代码
+## locale      语言信息
+## attributes  其他属性设置
+## allselect   是否显示“请选择”
+## checkvalue  设定默认选中
+## noshowAll  不显示的元数据
+##
+#macro( metadatasHtmlSingleSelectCheckedNoShowAll $path $category $locale $attributes $allselect $checkvalue $noshowAll)
+	#set( $options = $bizdictToolBox.getMetadatas($category, $locale) )
+    <select id="${path}" name="${path}" ${attributes}>
+		#if("false"!=$allselect)
+			 <option value=''>#springMessage('text.needselect')</option>
+		#end
+        #foreach($option in $options)
+            #set( $canShow = true)
+            #foreach($notShow in $noshowAll)
+                #if($notShow == $option.code)
+                    #set( $canShow = false)
+                #end
+            #end
+			#if($canShow)
+                <option value="$option.bizDictValue"
+				#if("$checkvalue" == "$option.bizDictValue")
+                    selected="selected"
+                #end>$option.bizDictValueName</option>
+            #end
+        #end
+    </select>
+#end
+
+##
+##  元数据分类下拉框,与Spring验证集成使用
+## path        表单数据名称
+## locale      语言信息
+## attributes  其他属性设置
+## allselect   是否显示“请选择”
+##
+#macro( topmetadatasSingleSelect $path  $locale $attributes $allselect)
+    #springBind($path)
+	 #set( $options = $bizdictToolBox.getTopMetadatas($locale) )
+    <select id="${status.expression}" name="${status.expression}" ${attributes}>
+			#if("false"!=$allselect) 
+			 <option value="">#springMessage('text.needselect')</option>
+		    #end
+        #foreach($option in $options)
+            <option   value="$option.bizDictValue"
+            #if("$!status.value" == "$option.bizDictValue")
+                selected="selected"
+            #end>
+            $option.bizDictValueName</option>
+        #end
+    </select>
+#end
+
+
+##
+##元数据单选按钮,与Spring验证集成使用
+## path        表单数据名称
+## category    元数据分类代码
+## locale      语言信息
+## attributes  其他属性设置
+## separator   单选按钮间的分隔符
+##
+#macro(  metadatasRadioButtons $path $category $locale $attributes $separator )
+    #springBind($path)
+	 #set( $options = $bizdictToolBox.getMetadatas($category, $locale) )
+     #foreach($option in $options)
+        <input type="radio" name="${status.expression}" value="${option.bizDictValue}"
+        #if("$!status.value" == "$option.bizDictValue")
+            checked="checked"
+        #end
+        $!{attributes}
+        /> $!{option.bizDictValueName} $!{separator}
+    #end
+#end
+
+##
+## 根据code查询元数据名称
+## category    分类代码
+## code        元数据代码
+## locale      语言信息
+##
+#macro(  getMetadataName $category $code $locale  )
+   $bizdictToolBox.getMetadataName($category,$code, $locale)
+#end
+
+##
+## 根据分类ID取分类名称
+## categoryId        分类ID
+##
+#macro(  getCategoryName $categoryId )
+   $!bizdictToolBox.getCategoryName($categoryId)
+#end
+
+##
+##元数据单选按钮
+## path        表单数据名称
+## category    元数据分类代码
+## locale      语言信息
+## checkvalue  默认选中
+## attributes  其他属性设置
+##
+#macro(  metadatasHtmlRadioButtons $path $catagory $locale $checkvalue $attributes $filter )
+	 #set( $options = $bizdictToolBox.getMetadatas($catagory, $locale) )
+     #foreach($option in $options)
+		#if("$filter"!="$option.bizDictValue") 
+			 <input type="radio" name="${path}" value="${option.bizDictValue}"
+            $!{attributes}
+    		#if("$!{checkvalue}" == "$option.bizDictValue")
+    			checked="checked"
+    		#end
+    		/>
+        $!{option.bizDictValueName} 
+		#end
+    #end
+#end
+
+
+##
+##元数据下拉框，不予Html绑定
+## path        表单数据名称
+## category    元数据分类代码
+## locale      语言信息
+## attributes  其他属性设置
+## allselect   是否显示“请选择”
+## checkvalue  设定默认选中
+##
+#macro( metadatasHtmlSingleSelect $path $category $locale $attributes $allselect $checkvalue)
+	#set( $options = $bizdictToolBox.getMetadatas($category, $locale) )
+    <select id="${path}" name="${path}" ${attributes}>
+		#if("false"!=$allselect)
+			 <option value=''>#springMessage('text.needselect')</option>
+		#end
+        #foreach($option in $options)
+            <option value="$option.bizDictValue"
+            #if("$checkvalue" == "$option.bizDictValue")
+                selected="selected"
+            #end>$option.bizDictValueName</option>
+        #end
+    </select>
+#end
+
+##
+##元数据复选框
+## path        表单数据名称
+## category    元数据分类代码
+## locale      语言信息
+## attributes  其他属性设置
+##
+#macro( metadatasFormCheckboxes $path $catagory $checkvalue)
+    #springBind($path)
+	#set( $options = $bizdictToolBox.getMetadatas($catagory) )
+     #foreach($option in $options)
+        <input type="checkbox" name="$path" value="${option.bizDictValue}" 
+		#foreach($val in $checkvalue)	
+    		#if("$!{val}" == "$option.bizDictValue")
+    			checked="checked"
+    		#end
+		#end>
+        $!{option.bizDictValueName}
+    #end
+    <input type="hidden" name="_${status.expression}" value="on"/>
+#end
+
+#macro(metadatasCheckboxes $path $catagory)
+	#set( $options = $bizdictToolBox.getMetadatas($catagory) )
+     #foreach($option in $options)
+        <input type="checkbox" name="$path" value="${option.bizDictValue}"/>
+        $!{option.bizDictValueName}
+    #end
+#end

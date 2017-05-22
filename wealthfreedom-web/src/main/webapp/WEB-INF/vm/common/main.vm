@@ -1,0 +1,4 @@
+#set($layout = "layout/empty.vm")
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"  style="">
+</body>

@@ -1,0 +1,9 @@
+#set($title = "系统提示")
+<body class="AMS" style="width:80%">
+<div id="content">
+     <p style="font-size:30px">#if(${error}) 出现异常 #else 成功 #end</p><br>
+     <h1>$!{error}</h1> 
+<div class="bl">
+    <div class="br">&nbsp;</div>
+</div>
+</div>

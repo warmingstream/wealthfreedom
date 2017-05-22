@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>商家结算</title>
+    <!-- start: BASE CSS -->
+    <link rel="stylesheet" href="#springUrl('/static/assets/plugins/bootstrap/css/bootstrap.min.css')">
+    <link rel="stylesheet" href="#springUrl('/static/assets/plugins/fontawesome/css/font-awesome.min.css')">
+    <link rel="stylesheet" href="#springUrl('/static/assets/plugins/fontawesome/css/font-awesome-ie7.min.css')">
+    <link rel="stylesheet" href="#springUrl('/static/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css')">
+    <link rel="stylesheet" href="#springUrl('/static/resources/css/axure_rp_page.css')" type="text/css" />
+    <!-- end: BASE CSS -->
+
+    <!-- start: MAIN CSS -->
+    <link rel="stylesheet" href="#springUrl('/static/assets/css/style.css')">
+    <!--link rel="stylesheet" href="#springUrl('/static/assets/css/skin-red.css" id="skinCss')"-->
+    <link rel="stylesheet" href="#springUrl('/static/assets/css/styles-responsive.css')">
+    <link rel="stylesheet" href="#springUrl('/static/assets/css/plugins.css')">
+    <link rel="stylesheet" href="#springUrl('/static/assets/css/bpo.css')">
+    <link rel="stylesheet" href="#springUrl('/static/assets/plugins/easyui/easyui.css')">
+
+    <!--[if lt IE 9]>
+    <script src="assets/plugins/html5.js"></script>
+    <![endif]-->
+
+</head>
+<!-- end: MAIN CSS -->
+
+<body>
+<div class="main-wrapper">
+    <!-- start: TOPBAR -->
+    <header class="topbar-fixed">
+        <div class="navbar-brand"><a href="/" id="logo">LOGO</a></div>
+        <div class="topbar-main">
+            <a class="menu-toggle" href="#"><i class="fa fa-bars"></i></a>
+            <ul class="nav navbar-top-links navbar-right mbn">
+                <li class="dropdown">
+                    <a data-hover="dropdown" href="#" class="dropdown-toggle">
+                        <i class="fa fa-bell fa-fw"></i>
+                        <span class="badge badge-green">99+</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a data-hover="dropdown" href="#" class="dropdown-toggle">
+                        <i class="fa fa-envelope fa-fw"></i>
+                        <span class="badge badge-orange">99+</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a data-hover="dropdown" href="#" class="dropdown-toggle">
+                        <i class="fa fa-tasks fa-fw"></i>
+                        <span class="badge badge-yellow">99+</span>
+                    </a>
+                </li>
+                <li class="dropdown topbar-user">
+                    <a data-hover="dropdown" href="#" class="dropdown-toggle">
+                        <img src="#springUrl('/static/style/assets/images/48.jpg')" alt="" class="img-responsive img-circle"/>&nbsp;<span class="hidden-xs">$!logPin</span>&nbsp;<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user pull-right">
+                        <li><a href="#"><i class="fa fa-user"></i>个人信息</a></li>
+                        <li><a href="#"><i class="fa fa-calendar"></i>个人日程</a></li>
+                        <li><a href="#"><i class="fa fa-envelope"></i>私人信件</a></li>
+                        <li><a href="#"><i class="fa fa-tasks"></i>待办任务</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#springUrl("")/logout"><i class="fa fa-key"></i>退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </header>
+    <!-- end: TOPBAR -->
+    <!-- start: PAGESLIDE LEFT -->
+    <nav class="pageslide-left">
+        <div id="navbar-content" class="nav-sidebar">
+            <div class="user-profile">
+                <dl>
+                    <dt><img src="#springUrl('/static/style/assets/images/50.jpg')"></dt>
+                    <dd>
+                        <p>欢迎您！</p>
+                        <h5>$!logPin</h5>
+                    </dd>
+                </dl>
+            </div>
+
+            <ul class="main-nav">
+                <li>
+                    <a href="#springUrl("")/" class="level-1">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <em class="fa fa-angle-right pull-right"></em>
+                        <i class="fa fa-flag-o"></i>
+                        <span>商家主数据</span>
+                    </a>
+                    <ul class="nav-sub">
+                        <li><a class="ajax-link" href="#springUrl("")/supplier/index">商家主数据查询</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <em class="fa fa-angle-right pull-right"></em><i class="fa fa-table"></i>
+                        <span>升级同步</span>
+
+                    </a>
+                    <ul class="nav-sub">
+                        <li><a class="ajax-link" href="#springUrl("")/supplier/synPage">同步操作页</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+    <!-- start: PAGESLIDE RIGHT -->
+    <div class="main-container">
+        <div class="space60"></div>
+        <!-- start: breadcrumb -->
+        <div class="title-breadcrumb">
+            <div class="breadcrumbTitle pull-left">Home</div>
+            <ol class="breadcrumb pull-right">
+                <li><i class="fa fa-home"></i>&nbsp;<a href="#springUrl("")/">Home</a></li>
+            </ol>
+        </div>
+        <!-- end: breadcrumb -->
+        <div class="container-box">
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+<!-- start: FOOTER -->
+<footer class="footer">
+    <div class="pull-left">2015 ? CopyRight by Admin. </div>
+</footer>
+<!-- end: FOOTER -->
+</div>
+<!-- end: PAGESLIDE RIGHT -->
+</div>
+
+<!-- start: MAIN JAVASCRIPTS -->
+<!--[if lt IE 9]>
+<script src="static/assets/plugins/respond.min.js"></script>
+<script src="static/assets/plugins/excanvas.min.js"></script>
+<script type="text/javascript" src="static/assets/plugins/jQuery/jquery-1.11.1.min.js"></script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<script src="#springUrl('/static/assets/plugins/jQuery/jquery-2.1.1.min.js')"></script>
+
+<!--<![endif]-->
+<script src="#springUrl('/static/assets/plugins/perfect-scrollbar/src/jquery.mousewheel.js')"></script>
+<script src="#springUrl('/static/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.js')"></script>
+<script src="#springUrl('/static/assets/plugins/My97DatePicker/WdatePicker.js')"></script>
+<script src="#springUrl('/static/assets/plugins/bootstrap/js/bootstrap-datetimepicker.js')"></script>
+<!-- end: MAIN JAVASCRIPTS -->
+
+<!--script src="#springUrl('/static/assets/js/jqModal/jqModal.js')"></script>
+<link rel="stylesheet" href="#springUrl('/static/assets/js/jqModal/jqModal.css')"/-->
+
+<script src="#springUrl('/static/assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js')"></script>
+<script src="#springUrl('/static/assets/plugins/bootstrap/js/bootstrap.min.js')"></script><!-- bootstrap -->
+<script src="#springUrl('/static/assets/js/junion.js')"></script>
+<script src="#springUrl('/static/assets/js/main.js')"></script>
+<script src="#springUrl('/static/assets/js/jquery-form.js')"></script>
+<script src="#springUrl('/static/assets/js/simpletable_ext.js?_v=20170301')"></script>
+<link rel="stylesheet" href="#springUrl('/static/assets/js/simpletable_ext.css')"/>
+<script src="#springUrl('/static/assets/js/ajax_upload.js')"></script>
+<!--script src="/#springUrl('/static/assets/js/popup.js')"></script -->
+</body>
+</html>

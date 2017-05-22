@@ -1,0 +1,486 @@
+#set($layout = "layout/empty.vm")
+<div id="simpleTableExt">
+    #set($tableFormId="supplier_page_list")
+    <form id="$tableFormId" action="/supplier/index" name="queryForm" method="post">
+        <div class="row mbl mtl">
+            <div class="column-box">
+                <div class="column-header">
+                    <div class="column-title">费用类型</div>
+                </div>
+                <div class="column-content has-padding">
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label class="col-md-4 control-label">商家ID：</label>
+                            <div class="col-md-7">
+                                <input type="text" id="supplierId" name="supplierId" value="$!{query.supplierId}" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label class="col-md-4 control-label">商家名称：</label>
+                            <div class="col-md-7">
+                                <input type="text" id="supplierName" name="supplierName" value="$!{query.supplierName}" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label class="col-md-4 control-label">事业部：</label>
+                            <div class="col-md-7">
+                                <select class="form-control" id="buId" name="buId" value="$!query.buId">
+                                    <option value="">请选择</option>
+                                    #foreach($BusinessDepartmentEnum in$BusinessDepartmentEnumList)
+                                        <option value="$BusinessDepartmentEnum.id" #if($BusinessDepartmentEnum.id == $!query.buId) selected #end>
+                                            $BusinessDepartmentEnum.name
+                                        </option>
+                                    #end
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label class="col-md-4 control-label">公司ID：</label>
+                            <div class="col-md-7">
+                                <input type="text" id="companyId" name="companyId" value="$!{query.companyId}" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label class="col-md-4 control-label">公司名称：</label>
+                            <div class="col-md-7">
+                                <input type="text" id="companyName" name="companyName" value="$!{query.companyName}" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label class="col-md-4 control-label">冻结状态：</label>
+                            <div class="col-md-7">
+                                <select class="form-control" id="ftState" name="ftState" value="$!query.ftState">
+                                    <option value="">请选择</option>
+                                    #foreach($SupplierFreezenEnum in$SupplierFreezenEnumList)
+                                        <option value="$SupplierFreezenEnum.id" #if($SupplierFreezenEnum.id == $!query.ftState) selected #end>
+                                            $SupplierFreezenEnum.name
+                                        </option>
+                                    #end
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-green mrl" id ="supplierSearch"><i class="fa fa-search"></i> 查询 </button>
+                        <button type="button" class="btn btn-info" id ="btnReset"><i class="fa fa-refresh"></i> 导出 </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="row mbl">
+        <div class="column-box">
+            <div class="column-content has-padding">
+##                <div class="mbl">
+##                    <button class="btn btn-green" data-toggle="modal" data-target="#feetypeOperate" onclick="javascript:addValues()"><i class="fa fa-plus"></i> 新增费用</button>
+##                    <button class="btn btn-red mrl" onclick="javascript:deleteFeeType()"><i class="fa fa-trash-o" ></i> 批量删除</button>
+##                </div>
+
+                <table id="" class="table display dataTable">
+                    <thead>
+                    <tr>
+                        <th width="5%"><input type="checkbox" id="check-all">全选</th>
+                        <th width="7%">商家ID</th>
+                        <th width="7%">商家名称</th>
+                        <th width="7%">公司ID</th>
+                        <th width="7%">公司名称</th>
+                        <th width="7%">事业部</th>
+                        <th width="7%">冻结状态</th>
+                        <th width="7%">店铺类型</th>
+                        <th width="7%">结算账户ID</th>
+                        <th width="7%">结算账户类型</th>
+                        <th width="7%">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        #foreach($item in ${page.result})
+                        <tr>
+                            <td><input type="checkbox" name="checkBoxId" value="$!{item.id}"></td>
+                            <td>$!item.supplierId</a></td>
+                            <td>$!{item.supplierName}</td>
+                            <td>$!{item.companyId}</td>
+                            <td>$!{item.companyName}</td>
+                            <td>$!{item.buId}</td>
+                            <td>#if($!item.ftState == "false") 未冻结#else冻结#end</td>
+                            <td>$!{item.supplierType}</td>
+                            <td>$!{item.accountId}</td>
+                            <td>$!{item.accountType}</td>
+                            <td>
+                                <button class="btn btn-info btn-xs" onclick="supplierDetails($!item.id)" target="_blank">详情</button>
+                                <button class="btn btn-red btn-xs" data-toggle="modal"  data-target="#feetypeOperate" onclick="javascript:modifySupplierInfo('$!{item.id}')"><i class="fa fa-times"></i>修改</button>
+                            </td>
+                        </tr>
+                        #end
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+    #set($tableName="supplierTable")
+    #if($page.result)
+        <div class="pages_bar">
+            #pageToolBarExt($page,$tableName)
+        </div>
+    #end
+
+</div>
+
+<div class="modal fade" id="feetypeOperate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <form name="myForm">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="close" id ="close" data-dismiss="modal" aria-hidden="true">×</a>
+                    <h4 class="modal-title" id="myModalLabel">
+                        商家信息修改
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <input type="hidden" id="id" name="id" />
+                        <fieldset>
+                            <legend>商家信息</legend>
+                            <div class="row mbl">
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-4 control-label" >商家ID：</label><em id="supplierIdText"></em>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-4 control-label">公司ID：</label><em id="companyIdText"></em>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-4 control-label">商家名称：</label><em id="supplierNameText"></em>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-4 control-label">公司名称：</label><em id="companyNameText"></em>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="row">
+                        <fieldset>
+                            <legend>商家信息</legend>
+                            <div class="row mbl">
+                                <div class="form-group col-md-6">
+                                    <label class="col-md-4 control-label"></label>
+                                    <div class="col-md-8">
+                                        战略商家：<input type="checkbox" id="strategicSupplier" name="strategicSupplier"></div>
+                                </div>
+                            </div>
+                    </div>
+                    </fieldset>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-green" data-dismiss="modal" id="saveSupplierInfo">确定</button>
+                <button type="button" class="btn btn-gray" data-dismiss="modal" id="cancleSave">取消</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+
+    function supplierDetails(id) {
+        document.myForm.action="/supplier/supplierDetails";
+        document.myForm.submit();
+    }
+
+    function modifySupplierInfo(id) {
+        $.ajax({
+            type: 'POST',
+            async :false,
+            cache : false,
+            url: "#springUrl('')/supplier/detail",
+            data:{"id":id},
+            dataType :'json',
+            error: function(){
+            },
+            success: function(result){
+                if(result.success){
+                    var data = result.data;
+                    $("#id").val(data.id);
+                    $("#supplierIdText").html(data.supplierId);
+                    $("#companyIdText").html(data.companyId);
+                    $("#supplierNameText").html(data.supplierName);
+                    $("#companyNameText").html(data.companyName);
+                    //战略商家
+                    if (data.strategicSupplier){
+                        $("#strategicSupplier").prop("checked", "checked");
+                    } else {
+                        $("#strategicSupplier").prop("checked", "");
+                    }
+                }else{
+                    alert(result.msg);
+                }
+            }
+        });
+        }
+
+
+
+    //获取所有的选择项id集合
+    function getAllChecked(){
+        var index = 0;
+        var value = "";
+        $('input[name="checkBoxId"]:checked').each(function(){
+            if(0 == index){
+                value = $(this).val();
+                index = index + 1;
+            }else{
+                value = value + "," + $(this).val();
+            }
+        });
+        return value;
+    }
+
+    //保存数据
+    $("#saveSupplierInfo").click(
+        function () {
+            $.ajax({
+                type: 'POST',
+                async :false,
+                cache : false,
+                url: "#springUrl('')/supplier/save",
+                data:{"strategicSupplier":$("#strategicSupplier").prop("checked"),"id":$("#id").val()},
+                dataType :'json',
+                error: function(){
+                },
+                success: function(result){
+                    if(result.success){
+                        ${tableName}.togglePage(1);
+                        alert("保存成功！");
+                    }else{
+                        alert(result.msg);
+                    }
+                }
+            });
+
+
+
+        }
+    )
+
+    //查询按钮
+    $("#supplierSearch").click(function () {
+                ${tableName}.togglePage(1);
+    }
+    )
+
+</script>
+
+<script type="text/javascript" >
+
+    window.${tableName} = new SimpleTable('$tableFormId',${page.thisPageNumber},${page.pageSize},"");
+    //全选 反选
+    $(document).ready(function(){
+        $("#check-all").on("click", function () {
+            var checked = this.checked;
+            var arr = $(this).closest("table").find("tbody input[type=checkbox]");
+
+            if (checked) {
+                arr.prop("checked", "checked");
+            } else {
+                arr.prop("checked", false);
+            }
+        });
+
+//        isShowFee();
+
+    });
+    //获取所有的选择项id集合
+    function getAllChecked(){
+        var index = 0;
+        var value = "";
+        $('input[name="checkBoxId"]:checked').each(function(){
+            if(0 == index){
+                value = $(this).val();
+                index = index + 1;
+            }else{
+                value = value + "," + $(this).val();
+            }
+        });
+        return value;
+    }
+
+    //查询
+    $("#btnSearch").click(function() {
+        ${tableName}.togglePage(1);
+    });
+
+    //重置
+    $("#btnReset").click(function() {
+        $("#createDateBegin").val("");
+        $("#createDateEnd").val("");
+        $("#createName").val("");
+        $("#yn").val("1");
+        $("#ptype").val("1");
+        document.getElementById("pIdDiv").style.display="none";//隐藏
+
+    });
+
+    //新增
+    function addFeeType() {
+        var feeCode = $("#feeCode").val();
+        var feeName = $("#feeName").val().replace(/\s/g, "");
+
+        var pTypeOper = $("#pTypeOper").val();
+        var pIdOper = $("#pIdOper").val();
+
+        var reg = /^\d*$/ig;
+        if (!reg.test(feeCode) || feeCode == "") {
+            alert("机构号不能为空并且只能为数字组合!");
+            return false;
+        }
+        if(feeName == ""){
+            alert("机构名称不能为空!");
+            return false;
+        }
+
+        jQuery.ajax({
+            type: 'POST',
+            async :false,
+            cache : false,
+            url: "#springUrl('')/popcfgfeetype/addFeeType",
+            data:{"feeCode":feeCode,"feeName":feeName,"pTypeOper":pTypeOper,"pIdOper":pIdOper},
+            dataType :'json',
+            error: function(){
+            },
+            success: function(result){
+                if(result.success){
+                    $("#close").click();
+                    ${tableName}.togglePage(1);
+                }else{
+                    alert("费用号已经存在!");
+                }
+            }
+        });
+    }
+
+    //修改
+    function updateFeeType(id) {
+
+        var feeName = $("#feeName").val().replace(/\s/g, "");
+
+        if(feeName == ""){
+            alert("机构名称不能为空!");
+            return false;
+        }
+        jQuery.ajax({
+            type: 'POST',
+            async :false,
+            cache : false,
+            url: "#springUrl('')/popcfgfeetype/updateFeeType",
+            data:{"id":id,"feeName":feeName},
+            dataType :'json',
+            error: function(){
+            },
+            success: function(result){
+                if(result.success){
+                    $("#close").click();
+                    ${tableName}.togglePage(1);
+                }
+            }
+        });
+    }
+
+    function addValues(){
+        $("#id").val("");
+        $("#feeCode").val("");
+        $("#feeName").val("");
+        $("#pTypeOper").val("1");
+        $("#pIdOper").val("0");
+        document.getElementById("pIdOperDiv").style.display="none";//隐藏
+    }
+
+    function updateValues(id,feeCode,feeName,pTypeOper,pIdOper){
+        $("#id").val(id);
+        $("#feeCode").val(feeCode);
+        $("#feeName").val(feeName);
+        $("#pTypeOper").val(pTypeOper);
+        $("#pIdOper").val(pIdOper);
+
+        if(pTypeOper == 2){
+            document.getElementById("pIdOperDiv").style.display="";//显示
+        }else{
+            document.getElementById("pIdOperDiv").style.display="none";//隐藏
+        }
+    }
+
+    $("#operateFeeType").click(function() {
+        var id = $("#id").val();
+        if(id == ""){
+            addFeeType();
+        }else{
+            updateFeeType(id);
+        }
+    });
+
+    //删除
+    function deleteFeeType(){
+
+        var ids = getAllChecked();
+        if(ids == ""){
+            alert("请选择需要操作的数据!");
+        }else{
+            if(confirm("确定删除数据")){
+                jQuery.ajax({
+                    type: 'POST',
+                    async: false,
+                    cache: false,
+                    url: "#springUrl('')/popcfgfeetype/deleteFeeType",
+                    data: {"ids": ids},
+                    dataType: 'json',
+                    error: function () {
+                    },
+                    success: function (result) {
+                        ${tableName}.togglePage(1);
+                    }
+                });
+            }
+        }
+    }
+
+    function isShowFee(){
+        var ptype = $('#ptype').val();
+        if(ptype == 2){
+            document.getElementById("pIdDiv").style.display="";//显示
+        }else{
+            document.getElementById("pIdDiv").style.display="none";//隐藏
+        }
+    }
+
+    function isShowFeeOper(){
+        var pTypeOper = $('#pTypeOper').val();
+        if(pTypeOper == 2){
+            document.getElementById("pIdOperDiv").style.display="";//显示
+        }else{
+            document.getElementById("pIdOperDiv").style.display="none";//隐藏
+        }
+    }
+
+    function deleteOneValue(id){
+        if(confirm("确定删除数据")){
+            jQuery.ajax({
+                type: 'POST',
+                async: false,
+                cache: false,
+                url: "#springUrl('')/popcfgfeetype/deleteFeeType",
+                data: {"ids": id},
+                dataType: 'json',
+                error: function () {
+                },
+                success: function (result) {
+                    ${tableName}.togglePage(1);
+                }
+            });
+        }
+    }
+
+
+</script>
+

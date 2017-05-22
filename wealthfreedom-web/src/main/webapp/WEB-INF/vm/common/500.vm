@@ -1,0 +1,10 @@
+#define($jsblock)
+	<script type="text/javascript" charset="utf-8">
+		try {
+			parent.$.messager.progress('close');
+		} catch (e) {
+		}
+	</script>
+#end
+	<div>内部错误(Error Code 500)</div>
+	<img alt="内部错误" src="#springUrl('/static/images/bluefaces_05.png')">

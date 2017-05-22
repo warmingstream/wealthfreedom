@@ -1,0 +1,135 @@
+/*
+ *  TEMPLATE-BLUE
+ */
+body, html{
+  background:#f0f2f2;
+}
+a:hover{
+  color: #c81623;
+}
+.topbar-fixed{ background:#c81623;}
+.navbar-brand{ background:#b1191a;}
+.navbar-brand a,.navbar-brand a:hover{ color:#FFF;}
+.menu-toggle{ background:#b1191a;}
+.menu-toggle:hover{ background:#aa1314; color:#FFF;}
+.navbar-top-links li.open > a {
+  color:#FFF;
+}
+.navbar-top-links li > a{ color:#FFF;}
+.navbar-top-links li > a i{ color:#FFF}
+.navbar-top-links li > a:hover{ color:#FFF;}
+.nav>li{border-left:0 solid #f4f4f4;}
+.navbar-top-links li > a:hover i,.navbar-top-links li.open > a i {
+  color: #FFF;
+}
+.navbar-top-links li.open > a:hover,
+.navbar-top-links li.open > a:focus {
+  background:#b1191a;
+  color:#FFF;
+}
+.nav .open>a,.nav .open>a:focus,.nav .open>a:hover {
+	background-color: #b1191a
+}
+.topbar-user .dropdown-menu li a:hover{
+    background:#eef3f6;
+	color:#c81623;	
+}
+.topbar-user.open .dropdown-menu li a:hover i{
+	color:#c81623;	
+}
+.user-profile{ padding:20px; border-bottom:1px solid #ddd; color:#39ac6a; background:#e4e4e4;}
+.user-profile dd h5{ color:#c81623;}
+.pageslide-left{ background:#e9e9e9; border-right:1px solid #ddd;}
+.main-nav li > a{ color:#666;}
+.main-nav li a em{ margin-right:5px;}
+.main-nav li a i{ display:inline-block; width:16px;}
+.main-nav li{ border-top:0; border-bottom:0;}
+.main-nav li:first-child{ border-top:0px solid #c81623;}
+.main-nav li:last-child{ border-bottom:0; box-shadow:none;}
+.main-nav li > a:hover, .main-nav li.open > a{ color:#c81623; background:#f5f5f5;}
+.main-nav li ul{ background:#f5f5f5; border-top:0;}
+.main-nav li.open{ position:relative; margin-right:-1px;}
+
+.main-nav li ul li a:hover{background:none;color:#c81623;}
+.main-nav li ul li.cur a{
+	padding-left:36px;
+	border-left:4px solid #c81623;
+	background:#fff;
+	color:#c81623;
+	text-decoration:none;	
+}
+.title-breadcrumb {
+    background: none;
+    padding: 15px 30px 5px;
+    margin-bottom: 10px;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
+.breadcrumb a:hover{color:#c81623;}
+.column-box{box-shadow: 0px 1px 3px rgba(0,0,0,.15);}
+.portlet-header,.column-title{ background:#F5f5f5;}
+.footer{ background:#fbf9f9; border-top: 1px solid #ddd; color:#999; opacity:.8}
+
+/*default*/
+.btn {border-radius:3px;}
+.btn-default {
+  background-color: #e66b6b;
+  border-color: #e25555;
+  color: white;
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
+  background-color: #e25555;
+  border-color: #df3f3f;
+  color: white;
+}
+
+.pagination-default li a {
+  background: #fceeee;
+  border: none !important;
+  color: #8b91a0;
+  display: inline-block;
+  margin-right: 1px;
+}
+.pagination-default li a:hover {
+  background: #f8d8d8;
+  color: #424650;
+  cursor: pointer;
+}
+.pagination-default li:first-child a {
+  border: none !important;
+}
+.pagination-default li.disabled a {
+  background: #fceeee;
+  filter: alpha(opacity=30);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  -moz-opacity: 0.3;
+  -khtml-opacity: 0.3;
+  opacity: 0.3;
+}
+.pagination-default li.disabled a:hover, .pagination-default li.disabled a:focus {
+  background: white;
+  filter: alpha(opacity=30);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  -moz-opacity: 0.3;
+  -khtml-opacity: 0.3;
+  opacity: 0.3;
+  cursor: default !important;
+}
+.pagination-default li.active a {
+  background: #e66b6b !important;
+  border: none !important;
+  color: white !important;
+  cursor: default !important;
+  filter: alpha(opacity=100);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+}
+.pagination-default li [class^="fa-"], .pagination-default li [class*=" fa-"] {
+  color: #e66b6b;
+}
+
+
+
+

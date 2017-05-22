@@ -1,0 +1,11 @@
+#define($jsblock)
+	<script type="text/javascript" charset="utf-8">
+		try {
+			parent.$.messager.progress('close');
+		} catch (e) {
+		}
+	</script>
+#end
+
+	<div>找不到页面(Error Code 404)</div>
+	<img alt="找不到页面啦" src="#springUrl('/static/images/bluefaces_35.png')">
