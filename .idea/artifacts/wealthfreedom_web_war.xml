@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="wealthfreedom-web:war">
+    <output-path>$PROJECT_DIR$/wealthfreedom-web/target</output-path>
+    <root id="archive" name="wealthfreedom-web.war">
+      <element id="artifact" artifact-name="wealthfreedom-web:war exploded" />
+    </root>
+  </artifact>
+</component>
