@@ -40,17 +40,17 @@
       <module name="fms-merchantmaster-service" target="1.5" />
       <module name="fms-merchantmaster-web" target="1.6" />
       <module name="fms-merchantmaster-worker-mq" target="1.6" />
-      <module name="wealthfreedom" target="1.6" />
-      <module name="wealthfreedom-common" target="1.6" />
-      <module name="wealthfreedom-dao" target="1.6" />
-      <module name="wealthfreedom-domain" target="1.6" />
-      <module name="wealthfreedom-facade" target="1.6" />
-      <module name="wealthfreedom-facade-service" target="1.6" />
+      <module name="wealthfreedom" target="1.5" />
+      <module name="wealthfreedom-common" target="1.5" />
+      <module name="wealthfreedom-dao" target="1.5" />
+      <module name="wealthfreedom-domain" target="1.5" />
+      <module name="wealthfreedom-facade" target="1.5" />
+      <module name="wealthfreedom-facade-service" target="1.5" />
       <module name="wealthfreedom-manager" target="1.6" />
       <module name="wealthfreedom-rpc" target="1.6" />
-      <module name="wealthfreedom-service" target="1.6" />
-      <module name="wealthfreedom-web" target="1.6" />
-      <module name="wealthfreedom-worker-mq" target="1.6" />
+      <module name="wealthfreedom-service" target="1.5" />
+      <module name="wealthfreedom-web" target="1.5" />
+      <module name="wealthfreedom-worker-mq" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -16,7 +16,7 @@
       <module fileurl="file://$PROJECT_DIR$/wealthfreedom-dao/wealthfreedom-dao.iml" filepath="$PROJECT_DIR$/wealthfreedom-dao/wealthfreedom-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/wealthfreedom-domain/wealthfreedom-domain.iml" filepath="$PROJECT_DIR$/wealthfreedom-domain/wealthfreedom-domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/wealthfreedom-facade/wealthfreedom-facade.iml" filepath="$PROJECT_DIR$/wealthfreedom-facade/wealthfreedom-facade.iml" />
-      <module fileurl="file://$PROJECT_DIR$/wealthfreedom-facade-service/wealthfreedom-service.iml" filepath="$PROJECT_DIR$/wealthfreedom-facade-service/wealthfreedom-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wealthfreedom-facade-service/wealthfreedom-facade-service.iml" filepath="$PROJECT_DIR$/wealthfreedom-facade-service/wealthfreedom-facade-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/wealthfreedom-manager/fms-merchantmaster-manager.iml" filepath="$PROJECT_DIR$/wealthfreedom-manager/fms-merchantmaster-manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/wealthfreedom-rpc/fms-merchantmaster-rpc.iml" filepath="$PROJECT_DIR$/wealthfreedom-rpc/fms-merchantmaster-rpc.iml" />
       <module fileurl="file://$PROJECT_DIR$/wealthfreedom-service/wealthfreedom-service.iml" filepath="$PROJECT_DIR$/wealthfreedom-service/wealthfreedom-service.iml" />
