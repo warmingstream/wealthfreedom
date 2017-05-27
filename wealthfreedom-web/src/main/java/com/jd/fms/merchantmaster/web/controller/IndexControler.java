@@ -16,11 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.LocaleResolver;
 
 import com.jd.common.web.LoginContext;
-import com.jd.fms.merchantmaster.web.controller.common.BaseController;
 
 @Controller
 @RequestMapping("/")
-public class IndexControler extends BaseController {
+public class IndexControler {
 
 	private String loginCookieKey = "_lc_";
 
@@ -55,7 +54,6 @@ public class IndexControler extends BaseController {
 			// 登陆成功保存登陆用户信息
 			// srcUserService.loginSuccessSaveUserInfo(erpCode);
 		} catch (Exception e) {
-			logger.error("登陆成功保存登陆用户信息失败", e);
 		}
 	}
 

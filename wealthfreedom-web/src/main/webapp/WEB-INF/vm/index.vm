@@ -1,179 +1,601 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-    <title>商家结算</title>
-    <!-- start: BASE CSS -->
-    <link rel="stylesheet" href="#springUrl('/static/assets/plugins/bootstrap/css/bootstrap.min.css')">
-    <link rel="stylesheet" href="#springUrl('/static/assets/plugins/fontawesome/css/font-awesome.min.css')">
-    <link rel="stylesheet" href="#springUrl('/static/assets/plugins/fontawesome/css/font-awesome-ie7.min.css')">
-    <link rel="stylesheet" href="#springUrl('/static/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css')">
-    <link rel="stylesheet" href="#springUrl('/static/resources/css/axure_rp_page.css')" type="text/css" />
-    <!-- end: BASE CSS -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Module &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+    <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 
-    <!-- start: MAIN CSS -->
-    <link rel="stylesheet" href="#springUrl('/static/assets/css/style.css')">
-    <!--link rel="stylesheet" href="#springUrl('/static/assets/css/skin-red.css" id="skinCss')"-->
-    <link rel="stylesheet" href="#springUrl('/static/assets/css/styles-responsive.css')">
-    <link rel="stylesheet" href="#springUrl('/static/assets/css/plugins.css')">
-    <link rel="stylesheet" href="#springUrl('/static/assets/css/bpo.css')">
-    <link rel="stylesheet" href="#springUrl('/static/assets/plugins/easyui/easyui.css')">
 
+
+
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content=""/>
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'> -->
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="/static/css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <!-- Superfish -->
+    <link rel="stylesheet" href="/static/css/superfish.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="/static/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+
+    <!-- Modernizr JS -->
+    <script src="/static/js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
-    <script src="assets/plugins/html5.js"></script>
+    <script src="/static/js/respond.min.js"></script>
     <![endif]-->
 
 </head>
-<!-- end: MAIN CSS -->
-
 <body>
-<div class="main-wrapper">
-    <!-- start: TOPBAR -->
-    <header class="topbar-fixed">
-        <div class="navbar-brand"><a href="/" id="logo">LOGO</a></div>
-        <div class="topbar-main">
-            <a class="menu-toggle" href="#"><i class="fa fa-bars"></i></a>
-            <ul class="nav navbar-top-links navbar-right mbn">
-                <li class="dropdown">
-                    <a data-hover="dropdown" href="#" class="dropdown-toggle">
-                        <i class="fa fa-bell fa-fw"></i>
-                        <span class="badge badge-green">99+</span>
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <a data-hover="dropdown" href="#" class="dropdown-toggle">
-                        <i class="fa fa-envelope fa-fw"></i>
-                        <span class="badge badge-orange">99+</span>
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <a data-hover="dropdown" href="#" class="dropdown-toggle">
-                        <i class="fa fa-tasks fa-fw"></i>
-                        <span class="badge badge-yellow">99+</span>
-                    </a>
-                </li>
-                <li class="dropdown topbar-user">
-                    <a data-hover="dropdown" href="#" class="dropdown-toggle">
-                        <img src="#springUrl('/static/style/assets/images/48.jpg')" alt="" class="img-responsive img-circle"/>&nbsp;<span class="hidden-xs">$!logPin</span>&nbsp;<span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user pull-right">
-                        <li><a href="#"><i class="fa fa-user"></i>个人信息</a></li>
-                        <li><a href="#"><i class="fa fa-calendar"></i>个人日程</a></li>
-                        <li><a href="#"><i class="fa fa-envelope"></i>私人信件</a></li>
-                        <li><a href="#"><i class="fa fa-tasks"></i>待办任务</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#springUrl("")/logout"><i class="fa fa-key"></i>退出</a></li>
-                    </ul>
-                </li>
-            </ul>
+<div id="fh5co-wrapper">
+    <div id="fh5co-page">
 
-        </div>
-    </header>
-    <!-- end: TOPBAR -->
-    <!-- start: PAGESLIDE LEFT -->
-    <nav class="pageslide-left">
-        <div id="navbar-content" class="nav-sidebar">
-            <div class="user-profile">
-                <dl>
-                    <dt><img src="#springUrl('/static/style/assets/images/50.jpg')"></dt>
-                    <dd>
-                        <p>欢迎您！</p>
-                        <h5>$!logPin</h5>
-                    </dd>
-                </dl>
+        <div class="fh5co-hero">
+            <div class="fh5co-overlay"></div>
+            <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(/static/images/cj02.jpg);">
+                <div class="desc">
+                    <div class="container">
+                        <div class="col-md-10 col-md-offset-1">
+                            <a href="index.html" id="main-logo"></a>
+                            <div class="animate-box">
+                                <h2>财富自由之路！</h2>
+                                <p>HandCrafted by <a href="http://frehtml5.co/" target="_blank" class="fh5co-site-name">FreeHTML5.co</a></p>
+                                <p><a class="btn btn-primary btn-lg" href="#">Get Started</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <ul class="main-nav">
-                <li>
-                    <a href="#springUrl("")/" class="level-1">
-                        <i class="fa fa-home"></i>
-                        <span>首页</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <em class="fa fa-angle-right pull-right"></em>
-                        <i class="fa fa-flag-o"></i>
-                        <span>商家主数据</span>
-                    </a>
-                    <ul class="nav-sub">
-                        <li><a class="ajax-link" href="#springUrl("")/supplier/index">商家主数据查询</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <em class="fa fa-angle-right pull-right"></em><i class="fa fa-table"></i>
-                        <span>升级同步</span>
-
-                    </a>
-                    <ul class="nav-sub">
-                        <li><a class="ajax-link" href="#springUrl("")/supplier/synPage">同步操作页</a></li>
-                    </ul>
-                </li>
-
-            </ul>
-
         </div>
-    </nav>
-    <!-- start: PAGESLIDE RIGHT -->
-    <div class="main-container">
-        <div class="space60"></div>
-        <!-- start: breadcrumb -->
-        <div class="title-breadcrumb">
-            <div class="breadcrumbTitle pull-left">Home</div>
-            <ol class="breadcrumb pull-right">
-                <li><i class="fa fa-home"></i>&nbsp;<a href="#springUrl("")/">Home</a></li>
-            </ol>
-        </div>
-        <!-- end: breadcrumb -->
-        <div class="container-box">
+
+        <header id="fh5co-header-section" class="sticky-banner">
+            <div class="container">
+                <div class="nav-header">
+                    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+                    <h1 id="fh5co-logo"><a href="index.html">Module</a></h1>
+                    <!-- START #fh5co-menu-wrap -->
+                    <nav id="fh5co-menu-wrap" role="navigation">
+                        <ul class="sf-menu" id="fh5co-primary-menu">
+                            <li class="active"><a href="index.html">Home</a></li>
+                            <li>
+                                <a href="#" class="fh5co-sub-ddown">Dropdown</a>
+                                <ul class="fh5co-sub-menu">
+                                    <li><a href="#">Web Design</a></li>
+                                    <li><a href="#">CSS3 &amp; HTML5</a></li>
+                                    <li><a href="#">Angular JS</a></li>
+                                    <li><a href="#">Node JS</a></li>
+                                    <li><a href="#">Django &amp; Python</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- end:header-top -->
 
 
+        <div id="fh5co-feature-product" class="fh5co-section-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+                        <h3>Business to the next level</h3>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    </div>
+                </div>
+
+                <div class="row row-bottom-padded-md">
+                    <div class="col-md-12 text-center animate-box">
+                        <p><img src="/static/images/cj02.jpg" alt="Free HTML5 Bootstrap Template" class="img-responsive img-rounded"></p>
+                    </div>
+
+                </div>
+                <div class="row row-bottom-padded-md">
+                    <div class="col-md-4">
+                        <div class="feature-text">
+                            <h3>Angular JS</h3>
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-text">
+                            <h3>Node JS</h3>
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-text">
+                            <h3>Django Python</h3>
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <a href="https://vimeo.com/channels/staffpicks/93951774" class="link-watch popup-vimeo btn btn-primary"><i class="icon-play3"></i> Watch our video</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
+
+        <div id="fh5co-features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <div class="feature-left">
+							<span class="icon">
+								<i class="icon-hotairballoon"></i>
+							</span>
+                            <div class="feature-copy">
+                                <h3>Marketing</h3>
+                                <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+                                <p><a href="#">Learn More</a></p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="feature-left">
+							<span class="icon">
+								<i class="icon-search"></i>
+							</span>
+                            <div class="feature-copy">
+                                <h3>Search Engine</h3>
+                                <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+                                <p><a href="#">Learn More</a></p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-left">
+							<span class="icon">
+								<i class="icon-wallet"></i>
+							</span>
+                            <div class="feature-copy">
+                                <h3>Earn Money</h3>
+                                <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+                                <p><a href="#">Learn More</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <div class="feature-left">
+							<span class="icon">
+								<i class="icon-wine"></i>
+							</span>
+                            <div class="feature-copy">
+                                <h3>Entrepreneur</h3>
+                                <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+                                <p><a href="#">Learn More</a></p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="feature-left">
+							<span class="icon">
+								<i class="icon-genius"></i>
+							</span>
+                            <div class="feature-copy">
+                                <h3>Stragic Plan</h3>
+                                <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+                                <p><a href="#">Learn More</a></p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-left">
+							<span class="icon">
+								<i class="icon-chat"></i>
+							</span>
+                            <div class="feature-copy">
+                                <h3>Support</h3>
+                                <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+                                <p><a href="#">Learn More</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
+
+
+        <div id="fh5co-portfolio" class="fh5co-section-gray">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+                        <h3>Our Gallery</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
+                    </div>
+                </div>
+
+
+                <div class="row row-bottom-padded-md">
+                    <div class="col-md-12">
+                        <ul id="fh5co-portfolio-list">
+
+                            <li class="two-third animate-box" data-animate-effect="fadeIn" style="background-image: url(/static/images/cover_bg_2.jpg); ">
+                                <a href="#" class="color-3">
+                                    <div class="case-studies-summary">
+                                        <span>Creative</span>
+                                        <h2>Wak in the wooden street</h2>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(/static/images/cover_bg_3.jpg); ">
+                                <a href="#" class="color-4">
+                                    <div class="case-studies-summary">
+                                        <span>Design</span>
+                                        <h2>Present your product</h2>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(/static/images/cj02.jpg); ">
+                                <a href="#" class="color-5">
+                                    <div class="case-studies-summary">
+                                        <span>Photo</span>
+                                        <h2>See the horizon</h2>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="two-third animate-box" data-animate-effect="fadeIn" style="background-image: url(/static/images/blog-1.jpg); ">
+                                <a href="#" class="color-6">
+                                    <div class="case-studies-summary">
+                                        <span>Love</span>
+                                        <h2>Spend time with your partner</h2>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4 text-center animate-box">
+                        <a href="#" class="btn btn-primary btn-lg">See Gallery</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <div class="fh5co-content-section">
+            <div class="container">
+                <div class="row row-bottom-padded-md">
+                    <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+                        <h3>Our Team</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="fh5co-team text-center animate-box">
+                            <figure>
+                                <img src="/static/images/person_1.jpg" alt="user">
+                            </figure>
+                            <p>Jean Doe, XYZ Co. <br> <span class="text-mute">Designer</span></p>
+                            <blockquote>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                            </blockquote>
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="fh5co-team text-center animate-box">
+                            <figure>
+                                <img src="/static/images/person_2.jpg" alt="user">
+                            </figure>
+                            <p>Jean Doe, XYZ Co. <br> <span class="text-mute">Developer</span></p>
+                            <blockquote>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                            </blockquote>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="fh5co-team text-center animate-box">
+                            <figure>
+                                <img src="/static/images/person_3.jpg" alt="user">
+                            </figure>
+                            <p>Jean Doe, XYZ Co. <br> <span class="text-mute">Photographer</span></p>
+                            <blockquote>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                            </blockquote>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- fh5co-content-section -->
+
+        <div id="fh5co-services-section" class="fh5co-section-gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+                        <h3>Our Experties</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service animate-box">
+                            <span><i class="icon-beaker"></i></span>
+                            <h3>Web Design</h3>
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service animate-box">
+                            <span><i class="icon-heart"></i></span>
+                            <h3>Design Passion</h3>
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service animate-box">
+                            <span><i class="icon-upload"></i></span>
+                            <h3>Upload Files</h3>
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service animate-box">
+                            <span><i class="icon-globe"></i></span>
+                            <h3>Web Design</h3>
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service animate-box">
+                            <span><i class="icon-bike"></i></span>
+                            <h3>UI/UX Design</h3>
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service animate-box">
+                            <span><i class="icon-cloud"></i></span>
+                            <h3>Lightning Cloud Server</h3>
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- END What we do -->
+
+
+        <div id="fh5co-blog-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+                        <h3>Recent From Blog</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row row-bottom-padded-md">
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="fh5co-blog animate-box">
+                            <a href="#"><img class="img-responsive" src="/static/images/cj02.jpg" alt=""></a>
+                            <div class="blog-text">
+                                <div class="prod-title">
+                                    <h3><a href=""#>Web Design for the Future</a></h3>
+                                    <span class="posted_by">Sep. 15th</span>
+                                    <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
+                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                    <p><a href="#">Learn More...</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="fh5co-blog animate-box">
+                            <a href="#"><img class="img-responsive" src="/static/images/cover_bg_2.jpg" alt=""></a>
+                            <div class="blog-text">
+                                <div class="prod-title">
+                                    <h3><a href=""#>Web Design for the Future</a></h3>
+                                    <span class="posted_by">Sep. 15th</span>
+                                    <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
+                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                    <p><a href="#">Learn More...</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-sm-block"></div>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="fh5co-blog animate-box">
+                            <a href="#"><img class="img-responsive" src="/static/images/cover_bg_3.jpg" alt=""></a>
+                            <div class="blog-text">
+                                <div class="prod-title">
+                                    <h3><a href=""#>Web Design for the Future</a></h3>
+                                    <span class="posted_by">Sep. 15th</span>
+                                    <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
+                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                    <p><a href="#">Learn More...</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-md-block"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4 text-center animate-box">
+                        <a href="#" class="btn btn-primary btn-lg">Our Blog</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- fh5co-blog-section -->
+        <footer>
+            <div id="footer">
+                <div class="container">
+                    <div class="row row-bottom-padded-md">
+                        <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
+                            <h3>Services</h3>
+                            <ul>
+                                <li><a href="#">Web Development</a></li>
+                                <li><a href="#">Design Strategy</a></li>
+                                <li><a href="#">UI/UX Planning</a></li>
+                                <li><a href="#">Photographer</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
+                            <h3>Company</h3>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Our Team</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Support</a></li>
+                                <li><a href="#">Career</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
+                            <h3>Our Apps</h3>
+                            <ul>
+                                <li><a href="#">Mobile Application</a></li>
+                                <li><a href="#">Online Payment</a></li>
+                                <li><a href="#">Time Monitoring</a></li>
+                                <li><a href="#">Andriod Payment Gateway</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
+                            <h3>Downloads</h3>
+                            <ul>
+                                <li><a href="#">Apple Store</a></li>
+                                <li><a href="#">Google Play</a></li>
+                                <li><a href="#">Windows Store</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
+                            <h3>Services</h3>
+                            <ul>
+                                <li><a href="#">Web Development</a></li>
+                                <li><a href="#">Design Strategy</a></li>
+                                <li><a href="#">UI/UX Planning</a></li>
+                                <li><a href="#">Photographer</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-12 fh5co-footer-link">
+                            <h3>Connect</h3>
+                            <ul>
+                                <li><a href="#">Follow on Twitter</a></li>
+                                <li><a href="#">Like on Facebook</a></li>
+                                <li><a href="#">Circle with Google</a></li>
+                                <li><a href="#">Partner with Linkedin</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3 text-center">
+                            <p class="fh5co-social-icons">
+                                <a href="#"><i class="icon-twitter2"></i></a>
+                                <a href="#"><i class="icon-facebook2"></i></a>
+                                <a href="#"><i class="icon-instagram"></i></a>
+                                <a href="#"><i class="icon-dribbble2"></i></a>
+                                <a href="#"><i class="icon-youtube"></i></a>
+                            </p>
+                            <p>Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights Reserved. <br>More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
 
     </div>
-
+    <!-- END fh5co-page -->
 
 </div>
+<!-- END fh5co-wrapper -->
 
-<!-- start: FOOTER -->
-<footer class="footer">
-    <div class="pull-left">2015 ? CopyRight by Admin. </div>
-</footer>
-<!-- end: FOOTER -->
-</div>
-<!-- end: PAGESLIDE RIGHT -->
-</div>
+<!-- jQuery -->
 
-<!-- start: MAIN JAVASCRIPTS -->
-<!--[if lt IE 9]>
-<script src="static/assets/plugins/respond.min.js"></script>
-<script src="static/assets/plugins/excanvas.min.js"></script>
-<script type="text/javascript" src="static/assets/plugins/jQuery/jquery-1.11.1.min.js"></script>
-<![endif]-->
-<!--[if gte IE 9]><!-->
-<script src="#springUrl('/static/assets/plugins/jQuery/jquery-2.1.1.min.js')"></script>
 
-<!--<![endif]-->
-<script src="#springUrl('/static/assets/plugins/perfect-scrollbar/src/jquery.mousewheel.js')"></script>
-<script src="#springUrl('/static/assets/plugins/perfect-scrollbar/src/perfect-scrollbar.js')"></script>
-<script src="#springUrl('/static/assets/plugins/My97DatePicker/WdatePicker.js')"></script>
-<script src="#springUrl('/static/assets/plugins/bootstrap/js/bootstrap-datetimepicker.js')"></script>
-<!-- end: MAIN JAVASCRIPTS -->
+<script src="/static/js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="/static/js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="/static/js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="/static/js/jquery.waypoints.min.js"></script>
+<script src="/static/js/sticky.js"></script>
 
-<!--script src="#springUrl('/static/assets/js/jqModal/jqModal.js')"></script>
-<link rel="stylesheet" href="#springUrl('/static/assets/js/jqModal/jqModal.css')"/-->
+<!-- Stellar -->
+<script src="/static/js/jquery.stellar.min.js"></script>
+<!-- Superfish -->
+<script src="/static/js/hoverIntent.js"></script>
+<script src="/static/js/superfish.js"></script>
+<!-- Magnific Popup -->
+<script src="/static/js/jquery.magnific-popup.min.js"></script>
+<script src="/static/js/magnific-popup-options.js"></script>
 
-<script src="#springUrl('/static/assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js')"></script>
-<script src="#springUrl('/static/assets/plugins/bootstrap/js/bootstrap.min.js')"></script><!-- bootstrap -->
-<script src="#springUrl('/static/assets/js/junion.js')"></script>
-<script src="#springUrl('/static/assets/js/main.js')"></script>
-<script src="#springUrl('/static/assets/js/jquery-form.js')"></script>
-<script src="#springUrl('/static/assets/js/simpletable_ext.js?_v=20170301')"></script>
-<link rel="stylesheet" href="#springUrl('/static/assets/js/simpletable_ext.css')"/>
-<script src="#springUrl('/static/assets/js/ajax_upload.js')"></script>
-<!--script src="/#springUrl('/static/assets/js/popup.js')"></script -->
+<!-- Main JS -->
+<script src="/static/js/main.js"></script>
+
 </body>
 </html>
+

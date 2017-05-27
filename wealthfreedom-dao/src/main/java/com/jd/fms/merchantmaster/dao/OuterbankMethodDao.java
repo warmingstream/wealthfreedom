@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface OuterbankMethodDao extends BaseDao<OuterbankMethod, java.lang.Long>{
+public interface OuterbankMethodDao {
 
 //    int deleteByPrimaryKey(@Param("id")Long id);
 //

@@ -14,7 +14,7 @@
 		">
 
 	<context:property-placeholder
-		location="classpath*:profile.properties,classpath*:profile-sso.properties,classpath:application.properties" />
+		location="classpath*:profile.properties,classpath*:classpath:application.properties" />
 
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">
@@ -164,15 +164,6 @@
             <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>
         </mvc:interceptor>
 
-		<mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <ref bean="springSSOInterceptor"/>
-        </mvc:interceptor>
-        
-        <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <ref bean="springAuthorizationInterceptor"/>
-        </mvc:interceptor>
 
 	</mvc:interceptors>
 </beans>

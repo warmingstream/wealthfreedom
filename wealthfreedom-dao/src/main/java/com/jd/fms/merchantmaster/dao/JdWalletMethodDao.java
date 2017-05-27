@@ -6,7 +6,7 @@ import com.jd.pops.merchantmaster.domain.model.PayoneerMethod;
 
 import java.util.List;
 
-public interface JdWalletMethodDao extends BaseDao<JdWalletMethod, java.lang.Long>{
+public interface JdWalletMethodDao {
 
 //    int deleteByPrimaryKey(@Param("id")Long id);
 //

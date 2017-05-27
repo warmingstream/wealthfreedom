@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface SupplierInfoDao extends BaseDao<SupplierInfo, java.lang.Long> {
+public interface SupplierInfoDao  {
 
 
 //    int deleteByPrimaryKey(@Param("id")Long id);

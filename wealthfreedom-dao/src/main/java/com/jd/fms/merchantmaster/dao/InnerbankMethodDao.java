@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface InnerbankMethodDao extends BaseDao<InnerbankMethod, java.lang.Long>{
+public interface InnerbankMethodDao {
 
 //    int deleteByPrimaryKey(@Param("id")Long id);
 //

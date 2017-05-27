@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface PayoneerMethodDao extends BaseDao<PayoneerMethod, java.lang.Long>{
+public interface PayoneerMethodDao {
 
 //    int deleteByPrimaryKey(@Param("id")Long id);
 //

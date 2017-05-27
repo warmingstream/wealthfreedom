@@ -25,12 +25,6 @@
 	<import resource="classpath:spring/spring-config-datasource.xml" />
 	<import resource="classpath:spring/spring-config-dao.xml" />
 	<import resource="classpath:spring/spring-config-service.xml" />
-	<!--<import resource="classpath:jsf/jsf-consumer.xml"/>-->
-	<!--<import resource="classpath:jsf/jsf-provider.xml"/>-->
-	<!--<import resource="classpath:spring/spring-config-sso-uim.xml"/>-->
-	<import resource="classpath:spring/spring-config-worker.xml"/>
-	<!--<import resource="classpath:spring/spring-jmq-producer.xml"/>-->
-	<!--<import resource="classpath:spring/spring-jmq-consumer.xml"/>-->
 
 
 	<aop:aspectj-autoproxy proxy-target-class="true" />
