@@ -8,7 +8,7 @@
     create_pin createPin, create_date createDate, update_pin updatePin, update_date updateDate
   </sql>
 
-  <select id="getById" resultType="com.jd.pops.merchantmaster.domain.model.InnerbankMethod" parameterType="java.lang.Long" >
+  <select id="getById" resultType="com.wealthfreedom.pops.merchantmaster.domain.model.InnerbankMethod" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from fms_merchantmaster_innerbank
@@ -20,7 +20,7 @@
     where id = #{id}
   </delete>
 
-  <insert id="InnerbankMethod.insert" parameterType="com.jd.pops.merchantmaster.domain.model.InnerbankMethod" useGeneratedKeys="true" keyProperty="id">
+  <insert id="InnerbankMethod.insert" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.InnerbankMethod" useGeneratedKeys="true" keyProperty="id">
     insert into fms_merchantmaster_innerbank (id, account_id, deposit_id, 
       deposit_company_name, deposit_name, deposot_bank_name, deposit_bank_address,
       associated_line_num, yn, sys_version, 
@@ -33,7 +33,7 @@
       #{updateDate})
   </insert>
 
-  <update id="updateByPrimaryKey" parameterType="com.jd.pops.merchantmaster.domain.model.InnerbankMethod" >
+  <update id="updateByPrimaryKey" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.InnerbankMethod" >
     update fms_merchantmaster_innerbank
     set account_id = #{accountId},
       deposit_id = #{depositId},
@@ -52,7 +52,7 @@
   </update>
 
 
-  <select id="InnerbankMethod.findByFields" resultType="com.jd.pops.merchantmaster.domain.model.InnerbankMethod" parameterType="com.jd.pops.merchantmaster.domain.model.InnerbankMethod" >
+  <select id="InnerbankMethod.findByFields" resultType="com.wealthfreedom.pops.merchantmaster.domain.model.InnerbankMethod" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.InnerbankMethod" >
     SELECT
     <include refid="Base_Column_List" />
     FROM
@@ -68,7 +68,7 @@
   </select>
 
 
-  <update id="InnerbankMethod.update" parameterType="com.jd.pops.merchantmaster.domain.model.InnerbankMethod" >
+  <update id="InnerbankMethod.update" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.InnerbankMethod" >
     update fms_merchantmaster_innerbank
     <set>
       <if test="yn != null">

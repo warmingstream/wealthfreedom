@@ -7,7 +7,7 @@
     update_pin updatePin, update_date updateDate
   </sql>
   
-  <select id="getById" resultType="com.jd.pops.merchantmaster.domain.model.BusinessDepartment" parameterType="java.lang.Long" >
+  <select id="getById" resultType="com.wealthfreedom.pops.merchantmaster.domain.model.BusinessDepartment" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from fms_merchantmaster_bu
@@ -19,7 +19,7 @@
     where id = #{id}
   </delete>
   
-  <insert id="BusinessDepartment.insert" parameterType="com.jd.pops.merchantmaster.domain.model.BusinessDepartment" useGeneratedKeys="true" keyProperty="id">
+  <insert id="BusinessDepartment.insert" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.BusinessDepartment" useGeneratedKeys="true" keyProperty="id">
     insert into fms_merchantmaster_bu (id, bu_id, bu_name, 
       yn, sys_version, create_pin, 
       create_date, update_pin, update_date
@@ -30,7 +30,7 @@
       )
   </insert>
  
-  <update id="updateByPrimaryKey" parameterType="com.jd.pops.merchantmaster.domain.model.BusinessDepartment" >
+  <update id="updateByPrimaryKey" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.BusinessDepartment" >
     update fms_merchantmaster_bu
     set bu_id = #{buId},
       bu_name = #{buName},
@@ -43,7 +43,7 @@
     where id = #{id}
   </update>
 
-  <select id="BusinessDepartment.findByFields" resultType="com.jd.pops.merchantmaster.domain.model.BusinessDepartment" parameterType="com.jd.pops.merchantmaster.domain.model.BusinessDepartment" >
+  <select id="BusinessDepartment.findByFields" resultType="com.wealthfreedom.pops.merchantmaster.domain.model.BusinessDepartment" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.BusinessDepartment" >
     SELECT
     <include refid="Base_Column_List" />
     FROM

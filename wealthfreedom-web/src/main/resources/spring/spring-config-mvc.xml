@@ -31,7 +31,7 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 	<!-- 自动扫描controller包下的所有类，使其认为spring mvc的控制器 -->
-	<context:component-scan base-package="com.jd.fms.merchantmaster.web.controller" />
+	<context:component-scan base-package="com.wealthfreedom.fms.merchantmaster.web.controller" />
 
 	<mvc:default-servlet-handler />
 	<mvc:resources mapping="/static/**" location="/static/"
@@ -154,7 +154,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
-			<bean class="com.jd.fms.merchantmaster.web.interceptor.I18nInterceptor">
+			<bean class="com.wealthfreedom.fms.merchantmaster.web.interceptor.I18nInterceptor">
 				<property name="localeResolver" ref="localeResolver"></property>
 			</bean>
 		</mvc:interceptor>

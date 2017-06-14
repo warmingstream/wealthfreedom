@@ -7,7 +7,7 @@
     create_pin createPin, create_date createDate, update_pin updatePin, update_date updateDate
   </sql>
   
-  <select id="getById" resultType="com.jd.pops.merchantmaster.domain.model.PayoneerMethod" parameterType="java.lang.Long" >
+  <select id="getById" resultType="com.wealthfreedom.pops.merchantmaster.domain.model.PayoneerMethod" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from fms_merchantmaster_payoneer
@@ -19,7 +19,7 @@
     where id = #{id}
   </delete>
   
-  <insert id="PayoneerMethod.insert" parameterType="com.jd.pops.merchantmaster.domain.model.PayoneerMethod" useGeneratedKeys="true" keyProperty="id">
+  <insert id="PayoneerMethod.insert" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.PayoneerMethod" useGeneratedKeys="true" keyProperty="id">
     insert into fms_merchantmaster_payoneer (id, account_id, payee_id, 
       first_name, last_name, yn, 
       sys_version, create_pin, create_date, 
@@ -30,7 +30,7 @@
       #{updatePin}, #{updateDate})
   </insert>
   
-  <update id="updateByPrimaryKey" parameterType="com.jd.pops.merchantmaster.domain.model.PayoneerMethod" >
+  <update id="updateByPrimaryKey" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.PayoneerMethod" >
     update fms_merchantmaster_payoneer
     set account_id = #{accountId},
       payee_id = #{payeeId},
@@ -46,7 +46,7 @@
   </update>
 
 
-  <select id="PayoneerMethod.findByFields" resultType="com.jd.pops.merchantmaster.domain.model.PayoneerMethod" parameterType="com.jd.pops.merchantmaster.domain.model.PayoneerMethod" >
+  <select id="PayoneerMethod.findByFields" resultType="com.wealthfreedom.pops.merchantmaster.domain.model.PayoneerMethod" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.PayoneerMethod" >
     SELECT
     <include refid="Base_Column_List" />
     FROM
@@ -61,7 +61,7 @@
     </if>
   </select>
 
-  <update id="PayoneerMethod.update" parameterType="com.jd.pops.merchantmaster.domain.model.PayoneerMethod" >
+  <update id="PayoneerMethod.update" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.PayoneerMethod" >
     update fms_merchantmaster_payoneer
     <set>
       <if test="yn != null">

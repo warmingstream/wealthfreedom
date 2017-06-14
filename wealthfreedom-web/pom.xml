@@ -12,7 +12,7 @@
 	<artifactId>wealthfreedom-web</artifactId>
 	<packaging>war</packaging>
 	<name>wealthfreedom-web</name>
-	<url>http://pops.jd.com</url>
+	<url></url>
 
 	<dependencies>
 		<dependency>
@@ -65,21 +65,8 @@
 			<artifactId>commons-fileupload</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>com.jd.common</groupId>
-			<artifactId>jd-common-util</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
 
-		<dependency>
-			<groupId>com.jd.ump</groupId>
-			<artifactId>jannotation</artifactId>
-		</dependency>
+
 
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -101,17 +88,7 @@
 			<artifactId>druid</artifactId>
 		</dependency>
 
-		<!-- 部署灵活配置依赖JAR包 -->
-		<dependency>
-			<groupId>com.jd.deploy</groupId>
-			<artifactId>deploy-configurer</artifactId>
-		</dependency>
-
 		<!-- 单点登录 -->
-		<dependency>
-			<groupId>com.jd.common</groupId>
-			<artifactId>sso-uim-spring</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>

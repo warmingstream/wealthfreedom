@@ -11,7 +11,7 @@
     sys_version sysVersion, create_pin createPin, create_date createDate, update_pin updatePin, update_date updateDate
   </sql>
   
-  <select id="getById" resultType="com.jd.pops.merchantmaster.domain.model.OuterbankMethod" parameterType="java.lang.Long" >
+  <select id="getById" resultType="com.wealthfreedom.pops.merchantmaster.domain.model.OuterbankMethod" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from fms_merchantmaster_outerbank
@@ -23,7 +23,7 @@
     where id = #{id}
   </delete>
   
-  <insert id="OuterbankMethod.insert" parameterType="com.jd.pops.merchantmaster.domain.model.OuterbankMethod" useGeneratedKeys="true" keyProperty="id">
+  <insert id="OuterbankMethod.insert" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.OuterbankMethod" useGeneratedKeys="true" keyProperty="id">
     insert into fms_merchantmaster_outerbank (id, account_id, deposit_id, 
       deposit_company_name, deposit_name, deposit_bank_name, deposit_bank_address,
       associated_line_num, deposit_bank_country, 
@@ -44,7 +44,7 @@
       )
   </insert>
   
-  <update id="updateByPrimaryKey" parameterType="com.jd.pops.merchantmaster.domain.model.OuterbankMethod" >
+  <update id="updateByPrimaryKey" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.OuterbankMethod" >
     update fms_merchantmaster_outerbank
     set account_id = #{accountId},
       deposit_id = #{depositId},
@@ -70,7 +70,7 @@
     where id = #{id}
   </update>
 
-  <select id="OuterbankMethod.findByFields" resultType="com.jd.pops.merchantmaster.domain.model.OuterbankMethod" parameterType="com.jd.pops.merchantmaster.domain.model.OuterbankMethod" >
+  <select id="OuterbankMethod.findByFields" resultType="com.wealthfreedom.pops.merchantmaster.domain.model.OuterbankMethod" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.OuterbankMethod" >
     SELECT
     <include refid="Base_Column_List" />
     FROM
@@ -85,7 +85,7 @@
     </if>
   </select>
 
-  <update id="OuterbankMethod.update" parameterType="com.jd.pops.merchantmaster.domain.model.OuterbankMethod" >
+  <update id="OuterbankMethod.update" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.OuterbankMethod" >
     update fms_merchantmaster_outerbank
     <set>
       <if test="yn != null">

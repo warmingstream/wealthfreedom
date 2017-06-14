@@ -47,7 +47,6 @@
 	</pluginRepositories>
 
 	<properties>
-		<jd.saf.version>1.0.0</jd.saf.version>
 		<major-version>1</major-version>
 		<minor-version>0</minor-version>
 		<snapshot-version>-SNAPSHOT</snapshot-version>
@@ -81,12 +80,9 @@
 		<jannotation.version>2.2.0</jannotation.version>
 		<aspectjweaver.version>1.6.6</aspectjweaver.version>
 		<ams-common.version>1.0</ams-common.version>
-		<jd.common.util.version>1.1.2</jd.common.util.version>
-		<jd.jedis.version>1.4.5-SNAPSHOT</jd.jedis.version>
 		<hibernate.validator.version>4.2.0.Final</hibernate.validator.version>
 		<jmq.version>1.3.1</jmq.version>
 		<jsf.version>1.5.1</jsf.version>
-		<jd-omdm-client.version>0.0.1-SNAPSHOT</jd-omdm-client.version>
 		<poi.version>3.9</poi.version>
 		<crs-rpc.version>1.1.2</crs-rpc.version>
 		<druid-version>1.0.9</druid-version>
@@ -218,11 +214,7 @@
 				<version>${slf4j.version}</version>
 			</dependency>
 
-			<dependency>
-				<groupId>com.jd</groupId>
-				<artifactId>saf</artifactId>
-				<version>${jd.saf.version}</version>
-			</dependency>
+
 
 			<dependency>
 				<groupId>commons-lang</groupId>
@@ -330,11 +322,7 @@
 				</exclusions>
 			</dependency>
 
-			<dependency>
-				<groupId>com.jd.ump</groupId>
-				<artifactId>jannotation</artifactId>
-				<version>${jannotation.version}</version>
-			</dependency>
+
 			<dependency>
 				<groupId>org.aspectj</groupId>
 				<artifactId>aspectjweaver</artifactId>
@@ -402,46 +390,10 @@
 				<version>${commons-fileupload.version}</version>
 			</dependency>
 
-			<dependency>
-				<groupId>com.jd.common</groupId>
-				<artifactId>jd-common-util</artifactId>
-				<version>${jd.common.util.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>aopalliance</groupId>
-						<artifactId>aopalliance</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>jmagick</groupId>
-						<artifactId>jmagick</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>dom4j</groupId>
-						<artifactId>dom4j</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.springframework</groupId>
-						<artifactId>spring</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>ice</groupId>
-						<artifactId>ice</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
 
 
-			<!--jedis 配置 -->
-			<dependency>
-				<groupId>com.jd.jim.cli</groupId>
-				<artifactId>jim-cli-jedis</artifactId>
-				<version>${jd.jedis.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.jd.jim.cli</groupId>
-				<artifactId>jim-cli-api</artifactId>
-				<version>${jd.jedis.version}</version>
-			</dependency>
+
+
 
 			<dependency>
 				<groupId>org.hibernate</groupId>
@@ -449,26 +401,7 @@
 				<version>${hibernate.validator.version}</version>
 			</dependency>
 
-			<!-- jmq start -->
-			<dependency>
-				<groupId>com.jd.jmq</groupId>
-				<artifactId>jmq-client-spring</artifactId>
-				<version>${jmq.version}</version>
-			</dependency>
 
-			<!-- jmq end -->
-
-			<dependency>
-				<groupId>com.jd</groupId>
-				<artifactId>jsf</artifactId>
-				<version>${jsf.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>jd-omdm-client</groupId>
-				<artifactId>jd-omdm-client</artifactId>
-				<version>${jd-omdm-client.version}</version>
-			</dependency>
 
 			<dependency>
 				<groupId>org.apache.poi</groupId>
@@ -558,17 +491,7 @@
 
 			<!--cxf end -->
 
-			<dependency>
-				<groupId>jd.gms</groupId>
-				<artifactId>gms-common</artifactId>
-				<version>1.1.3-SNAPSHOT</version>
-			</dependency>
 
-			<dependency>
-				<groupId>com.jd.fms</groupId>
-				<artifactId>ufo_saf</artifactId>
-				<version>2.0-SNAPSHOT</version>
-			</dependency>
 
 			<dependency>
 				<groupId>com.alibaba</groupId>
@@ -594,23 +517,7 @@
 				<version>${findbugs.version}</version>
 			</dependency>
 
-			<!-- 部署灵活配置依赖JAR包 -->
-			<dependency>
-				<groupId>com.jd.deploy</groupId>
-				<artifactId>deploy-configurer</artifactId>
-				<version>${deploy-configurer.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.jd.ql.basic</groupId>
-				<artifactId>ql-basic-client</artifactId>
-				<version>${ql-basic-client.version}</version>
-			</dependency>
 
-			<dependency>
-				<groupId>com.jd.las.im</groupId>
-				<artifactId>las-im-receipt-imbill</artifactId>
-				<version>${las-im-receipt-imbill.version}</version>
-			</dependency>
 
 			<dependency>
 				<groupId>org.jsoup</groupId>
@@ -618,23 +525,10 @@
 				<version>${jsoup.version}</version>
 			</dependency>
 
-			<!-- 单点登录 -->
-			<dependency>
-				<groupId>com.jd.common</groupId>
-				<artifactId>sso-uim-spring</artifactId>
-				<version>${sso-uim-spring.version}</version>
-			</dependency>
 			<dependency>
 				<groupId>org.apache.httpcomponents</groupId>
 				<artifactId>httpclient</artifactId>
 				<version>${httpclient.version}</version>
-			</dependency>
-
-			<!--商家主数据同步-->
-			<dependency>
-				<groupId>com.jd.pop.finance.accounts</groupId>
-				<artifactId>pop-accounts-spi</artifactId>
-				<version>${pop-accounts-spi-version}</version>
 			</dependency>
 
 		</dependencies>

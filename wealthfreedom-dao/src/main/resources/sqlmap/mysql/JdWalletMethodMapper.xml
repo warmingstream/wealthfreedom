@@ -8,7 +8,7 @@
     update_date updateDate
   </sql>
 
-  <select id="getById" resultType="com.jd.pops.merchantmaster.domain.model.JdWalletMethod" parameterType="java.lang.Long" >
+  <select id="getById" resultType="com.wealthfreedom.pops.merchantmaster.domain.model.JdWalletMethod" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from fms_merchantmaster_jd_wallet
@@ -20,7 +20,7 @@
     where id = #{id}
   </delete>
 
-  <insert id="JdWalletMethod.insert" parameterType="com.jd.pops.merchantmaster.domain.model.JdWalletMethod" useGeneratedKeys="true" keyProperty="id">
+  <insert id="JdWalletMethod.insert" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.JdWalletMethod" useGeneratedKeys="true" keyProperty="id">
     insert into fms_merchantmaster_jd_wallet (id, account_id,
       account_name, user_name, merchant_id,
       custom_id, alias, type,
@@ -35,7 +35,7 @@
       )
   </insert>
 
-  <update id="updateByPrimaryKey" parameterType="com.jd.pops.merchantmaster.domain.model.JdWalletMethod" >
+  <update id="updateByPrimaryKey" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.JdWalletMethod" >
     update fms_merchantmaster_jd_wallet
     set account_id = #{accountId},
       account_name = #{accountName},
@@ -53,7 +53,7 @@
     where id = #{id}
   </update>
 
-  <select id="JdWalletMethod.findByFields" resultType="com.jd.pops.merchantmaster.domain.model.JdWalletMethod" parameterType="com.jd.pops.merchantmaster.domain.model.JdWalletMethod" >
+  <select id="JdWalletMethod.findByFields" resultType="com.wealthfreedom.pops.merchantmaster.domain.model.JdWalletMethod" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.JdWalletMethod" >
     SELECT
     <include refid="Base_Column_List" />
     FROM
@@ -68,7 +68,7 @@
     </if>
   </select>
 
-  <update id="JdWalletMethod.update" parameterType="com.jd.pops.merchantmaster.domain.model.JdWalletMethod" >
+  <update id="JdWalletMethod.update" parameterType="com.wealthfreedom.pops.merchantmaster.domain.model.JdWalletMethod" >
     update fms_merchantmaster_jd_wallet
     <set>
       <if test="yn != null">
