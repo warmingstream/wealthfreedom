@@ -37,6 +37,7 @@ public class IndexControler {
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String index(ModelMap mode) {
+		int i = 0;
 //		LoginContext loginContext = LoginContext.getLoginContext();
 //		String erpCode = loginContext.getPin();
 //		// 登陆成功保存登陆用户信息
@@ -50,7 +51,7 @@ public class IndexControler {
 
 	private void loginSuccessSaveUserInfo(String erpCode) {
 		try {
-
+			int i = 0;
 			// 登陆成功保存登陆用户信息
 			// srcUserService.loginSuccessSaveUserInfo(erpCode);
 		} catch (Exception e) {
